@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cgmq50kcyty2s"]
 
-[ext_resource type="Script" uid="uid://dl7u03y0f8swc" path="res://scripts/control_permisos_user.gd" id="1_a5bd8"]
-[ext_resource type="FontFile" uid="uid://eyjpv8ewbn7b" path="res://assests/fonts/retropix.ttf" id="2_1luew"]
-[ext_resource type="Texture2D" uid="uid://bnjarui3d1c3c" path="res://assests/img/High Priority.png" id="3_wxapw"]
-[ext_resource type="AudioStream" uid="uid://bfxi153a0ot73" path="res://musica/musica4.mp3" id="4_wxapw"]
+[ext_resource type="Script" uid="uid://dl7u03y0f8swc" path="res://scripts/mision 5/control_permisos_user.gd" id="1_a5bd8"]
+[ext_resource type="FontFile" uid="uid://cu3jc3nh0n4vb" path="res://assets/fonts/retropix.ttf" id="2_1luew"]
+[ext_resource type="Texture2D" uid="uid://gu764c50if7b" path="res://assets/img/mision 5/High Priority.png" id="3_wxapw"]
+[ext_resource type="AudioStream" uid="uid://d4dy6a7j8k01b" path="res://assets/music/musica4.mp3" id="4_wxapw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1egt5"]
 bg_color = Color(0.011268774, 0.08573381, 0.21409756, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://1xryn10ppjmj"]
 
-[ext_resource type="Script" uid="uid://be075ffiysip6" path="res://scripts/control_inir.gd" id="1_l0fq3"]
+[ext_resource type="Script" uid="uid://di3urgu7x0ycc" path="res://scripts/mision 5/control_inir.gd" id="1_l0fq3"]
 
 [node name="Control_inir" type="Control"]
 layout_mode = 3

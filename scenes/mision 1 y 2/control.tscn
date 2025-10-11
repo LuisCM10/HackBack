@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=4 uid="uid://cio708a3p4arn"]
 
-[ext_resource type="Script" uid="uid://blgkqongwfvx7" path="res://Script/reactor.gd" id="1_qqb0l"]
-[ext_resource type="Texture2D" uid="uid://b6i0n0aamow2j" path="res://imagenes/tileset x1.png" id="2_5q114"]
-[ext_resource type="FontFile" uid="uid://biiex1vtpk71p" path="res://letra/VCR_OSD_MONO_1.001.ttf" id="3_wir5x"]
-[ext_resource type="Texture2D" uid="uid://5lxxeltl77x5" path="res://imagenes/boton confirmar.png" id="4_6nump"]
-[ext_resource type="Texture2D" uid="uid://cpcakcv7oft5i" path="res://imagenes/barra.png" id="5_a5yss"]
-[ext_resource type="AudioStream" uid="uid://d07fepwq13owq" path="res://musica/musica1.mp3" id="6_atmuf"]
+[ext_resource type="Script" uid="uid://cotf75gs8fbom" path="res://scripts/mision 1 y 2/reactor.gd" id="1_qqb0l"]
+[ext_resource type="Texture2D" uid="uid://chvrmf877ired" path="res://assets/img/mision 1 y 2/tileset x1.png" id="2_5q114"]
+[ext_resource type="FontFile" uid="uid://dks6hcy4irrsf" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_wir5x"]
+[ext_resource type="Texture2D" uid="uid://daogecj3d3ge2" path="res://assets/img/mision 1 y 2/boton confirmar.png" id="4_6nump"]
+[ext_resource type="Texture2D" uid="uid://dqhi05wnv04ls" path="res://assets/img/mision 1 y 2/barra.png" id="5_a5yss"]
+[ext_resource type="AudioStream" uid="uid://dobj2lnh0gykf" path="res://assets/music/musica1.mp3" id="6_atmuf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3jd5"]
 texture = ExtResource("2_5q114")

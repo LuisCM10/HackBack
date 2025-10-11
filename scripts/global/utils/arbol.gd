@@ -56,7 +56,7 @@ func insertar_rec(scene, nodo: Nodo, i : int, iconpath) -> Nodo:
 
 	if i < nodo.i:
 		nodo.izq = insertar_rec(scene, nodo.izq, i, iconpath)
-	elif i > nodo.i:
+	elif i >= nodo.i:
 		nodo.der = insertar_rec(scene, nodo.der, i, iconpath)
 	else:
 		return nodo
@@ -95,31 +95,28 @@ func _Nodo_visitado(nodo : Nodo, izq, der) -> void:
 # Función principal: Encuentra el nodo más lejano desde la raíz
 func nodo_mas_lejano() -> Nodo:
 	if raiz == null:
-		print("Árbol vacío: No hay nodos.")
 		return null
 	
+	var cola: Array = []  # Cola de [nodo, profundidad]
+	cola.append([raiz, 0])
+	
 	var nodo_lejano: Nodo = null
-	var max_profundidad: int = -1
+	var max_prof: int = -1
 	
-	_encontrar_nodo_lejano_rec(raiz, 0, max_profundidad, nodo_lejano)
-	
-	if nodo_lejano != null:
-		print("Nodo más lejano: ", nodo_lejano ," a profundidad ", max_profundidad)
-	else:
-		print("No se encontró nodo lejano.")
+	while not cola.is_empty():
+		var actual = cola.pop_front()  # FIFO
+		var nodo_actual: Nodo = actual[0]
+		var prof_actual: int = actual[1]
+		
+		if prof_actual > max_prof:
+			max_prof = prof_actual
+			nodo_lejano = nodo_actual
+			print("Nuevo lejano en BFS: ", nodo_actual.i, " prof: ", prof_actual)
+		
+		# Agrega hijos a la cola
+		if nodo_actual.izq != null:
+			cola.append([nodo_actual.izq, prof_actual + 1])
+		if nodo_actual.der != null:
+			cola.append([nodo_actual.der, prof_actual + 1])
 	
 	return nodo_lejano
-
-# Función recursiva auxiliar
-func _encontrar_nodo_lejano_rec(nodo: Nodo, profundidad_actual: int, max_profundidad: int, nodo_lejano: Nodo) -> void:
-	if nodo == null:
-		return
-	
-	# Actualiza si esta profundidad es mayor
-	if profundidad_actual > max_profundidad:
-		max_profundidad = profundidad_actual
-		nodo_lejano = nodo
-	
-	# Recursión en hijos (izquierda primero, luego derecha; el orden no afecta el resultado)
-	_encontrar_nodo_lejano_rec(nodo.izq, profundidad_actual + 1, max_profundidad, nodo_lejano)
-	_encontrar_nodo_lejano_rec(nodo.der, profundidad_actual + 1, max_profundidad, nodo_lejano)

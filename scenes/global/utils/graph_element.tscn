@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg3ghrggeflxo"]
 
-[ext_resource type="Script" uid="uid://d3rcnux4mspt5" path="res://scripts/nodoElement.gd" id="1_oux3e"]
+[ext_resource type="Script" uid="uid://bo40kgw5rulib" path="res://scripts/global/utils/nodoElement.gd" id="1_oux3e"]
 
 [node name="NodoArbol" type="GraphElement"]
 offset_right = 97.0

@@ -25,6 +25,7 @@ func actualizar(scene, i: int, iconpath):
 	self.i = i
 	self.icon = iconpath
 	self.fe = 1
+	print("Nodo creado: ", i)
 
 func is_VisitedRec(izqN, derN):
 	isVisited = not isVisited

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://6o2htdn2hhje"]
 
-[ext_resource type="Script" uid="uid://bjns0iuvf8rbu" path="res://scripts/user_permiso.gd" id="1_f6scd"]
-[ext_resource type="Texture2D" uid="uid://bksd3nv2qg4h0" path="res://assests/img/icon.svg" id="1_o5sfl"]
+[ext_resource type="Script" uid="uid://de0rorctyspse" path="res://scripts/mision 5/user_permiso.gd" id="1_f6scd"]
+[ext_resource type="Texture2D" uid="uid://ww62yexk6q0i" path="res://icon.png" id="1_o5sfl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6scd"]
 font_size = 23

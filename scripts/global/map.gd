@@ -52,10 +52,11 @@ func iniciarJuego() -> void:
 	#scene.append(preload(""))	
 	iconpath.append("res://assests/img/Prewiev2.jpg")
 	iconpath.append("res://assests/img/Prewiev1.jpg")
-	for x in random.randi_range(0, 15):
+	for x in random.randi_range(8, 15):
 		var value = generarEscena()
 		arbol.insertar(scene[value], iconpath[value])
-	var lejano = arbol.nodo_mas_lejano_mejorado()
+		
+	var lejano = arbol.nodo_mas_lejano()
 	#if lejano != null:
 		#lejano.scene = sceneWin
 		#print("nodo lejano Central Seguro establecido")

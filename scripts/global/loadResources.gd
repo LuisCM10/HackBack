@@ -1,3 +1,4 @@
+
 extends Node
 
 var questions: Array[Question]
@@ -6,7 +7,7 @@ var users: Array[User]
 func loadQuestions () -> Array[Question]:
 	if !questions.is_empty():
 		return questions
-	var fileQuestion = FileAccess.open("res://assests/data/questions.json", FileAccess.READ)
+	var fileQuestion = FileAccess.open("res://assets/data/questions.json", FileAccess.READ)
 	if fileQuestion == null:
 		print("Error: No se pudo abrir el archivo: questions.json")
 		return questions
@@ -31,7 +32,7 @@ func loadQuestions () -> Array[Question]:
 func loadUsers () -> Array[User]:
 	if !users.is_empty():
 		return users
-	var file = FileAccess.open("res://assests/data/users.json", FileAccess.READ)
+	var file = FileAccess.open("res://assets/data/users.json", FileAccess.READ)
 	if file == null:
 		print("Error: No se pudo abrir el archivo: questions.json")
 		return users

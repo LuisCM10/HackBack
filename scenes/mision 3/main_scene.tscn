@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://481xn28lkd83"]
 
-[ext_resource type="Script" uid="uid://dfmcsy6xsthkq" path="res://scripts/main.gd" id="1"]
-[ext_resource type="Script" uid="uid://1hpqccm4r0yi" path="res://scripts/cable.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://coplrwax54m4r" path="res://png/cablesfondo.png" id="2_gyfs4"]
-[ext_resource type="FontFile" uid="uid://caaxwy32pcddo" path="res://png/VCR_OSD_MONO_1.001.ttf" id="4_d5x1h"]
+[ext_resource type="Script" uid="uid://cqcfvtou6jpnt" path="res://scripts/mision 3/main.gd" id="1"]
+[ext_resource type="Script" uid="uid://cgowop2gexumt" path="res://scripts/mision 3/cable.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dkf2grrmwf12h" path="res://assets/img/mision 3/cablesfondo.png" id="2_gyfs4"]
+[ext_resource type="FontFile" uid="uid://dks6hcy4irrsf" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="4_d5x1h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d5x1h"]
 font = ExtResource("4_d5x1h")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://cmqxne0ehgiju"]
 
-[ext_resource type="Script" uid="uid://d1miijwqhydkf" path="res://scripts/QuestionPanel.gd" id="1_qbe5o"]
-[ext_resource type="FontFile" uid="uid://eyjpv8ewbn7b" path="res://assests/fonts/retropix.ttf" id="2_7g38m"]
-[ext_resource type="Texture2D" uid="uid://bslp7dwf5etxt" path="res://assests/sprites/Enemies/enemies x1.png" id="3_7g38m"]
-[ext_resource type="AudioStream" uid="uid://i7lcq5gev38v" path="res://musica/musica3.mp3" id="4_lvkhk"]
+[ext_resource type="Script" uid="uid://dbn5pvm3lxvrq" path="res://scripts/mision 4/QuestionPanel.gd" id="1_qbe5o"]
+[ext_resource type="FontFile" uid="uid://cu3jc3nh0n4vb" path="res://assets/fonts/retropix.ttf" id="2_7g38m"]
+[ext_resource type="Texture2D" uid="uid://bslp7dwf5etxt" path="res://assets/sprites/Enemies/enemies x1.png" id="3_7g38m"]
+[ext_resource type="AudioStream" uid="uid://c476x60ahi25d" path="res://assets/music/musica3.mp3" id="4_lvkhk"]
 
 [sub_resource type="Theme" id="Theme_se34m"]
 
