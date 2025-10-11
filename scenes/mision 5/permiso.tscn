@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck5ivcgmkebop"]
+
+[ext_resource type="Script" uid="uid://dp8bktngjo1w8" path="res://scripts/permiso.gd" id="1_cwd5l"]
+
+[node name="Permiso" type="CheckButton"]
+offset_right = 165.0
+offset_bottom = 24.0
+script = ExtResource("1_cwd5l")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

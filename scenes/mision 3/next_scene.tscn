@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpb3vlagmqkjf"]
+
+[node name="NextScene" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+text = "Tarea completada"

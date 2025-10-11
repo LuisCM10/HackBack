@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgmq50kcyty2s"]
+
+[ext_resource type="Script" uid="uid://dl7u03y0f8swc" path="res://scripts/control_permisos_user.gd" id="1_a5bd8"]
+[ext_resource type="FontFile" uid="uid://eyjpv8ewbn7b" path="res://assests/fonts/retropix.ttf" id="2_1luew"]
+[ext_resource type="Texture2D" uid="uid://bnjarui3d1c3c" path="res://assests/img/High Priority.png" id="3_wxapw"]
+[ext_resource type="AudioStream" uid="uid://bfxi153a0ot73" path="res://musica/musica4.mp3" id="4_wxapw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1egt5"]
+bg_color = Color(0.011268774, 0.08573381, 0.21409756, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_abhr8"]
+font = ExtResource("2_1luew")
+font_size = 43
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kohnk"]
+bg_color = Color(0, 0, 0, 0.34117648)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_foaol"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1luew"]
+font_color = Color(1, 0, 0, 1)
+
+[node name="ControlPermisosUser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5bd8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1egt5")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 13.0
+offset_right = 435.0
+offset_bottom = 83.0
+text = "Empleados - Permisos"
+label_settings = SubResource("LabelSettings_abhr8")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 71.0
+offset_right = 1099.0
+offset_bottom = 140.0
+text = "El ataque que estamos sufriendo a cambiado los permisos de algunos empleados, necesitamos tu ayuda para que vuelvan a la normalidad. Establecele los permisos correctos segun el rol del empleado. Confiamos en ti!!"
+autowrap_mode = 3
+
+[node name="HighPriority" type="Sprite2D" parent="Panel"]
+position = Vector2(88.5, 99)
+scale = Vector2(1.2199997, 1.3)
+texture = ExtResource("3_wxapw")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -178.0
+offset_right = 533.0
+offset_bottom = 247.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kohnk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="ButtonVerificar" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = -66.0
+offset_right = 505.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Verificar
+"
+autowrap_trim_flags = 0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 582.0
+offset_right = 940.0
+offset_bottom = 624.0
+theme = SubResource("Theme_foaol")
+text = "Salir"
+
+[node name="error" type="Label" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 583.0
+offset_right = 771.0
+offset_bottom = 632.0
+text = "Algun(os) permiso(s) se encuentra(n) aun incorrectos. Por favor corriguelos, se que puedes lograrlo."
+label_settings = SubResource("LabelSettings_1luew")
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wxapw")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Panel/ButtonVerificar" to="." method="_on_button_verificar_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

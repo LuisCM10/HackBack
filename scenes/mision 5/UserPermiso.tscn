@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://6o2htdn2hhje"]
+
+[ext_resource type="Script" uid="uid://bjns0iuvf8rbu" path="res://scripts/user_permiso.gd" id="1_f6scd"]
+[ext_resource type="Texture2D" uid="uid://bksd3nv2qg4h0" path="res://assests/img/icon.svg" id="1_o5sfl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6scd"]
+font_size = 23
+
+[sub_resource type="FontFile" id="FontFile_f6scd"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvmve"]
+font = SubResource("FontFile_f6scd")
+font_size = 20
+font_color = Color(0.32013693, 0.4718877, 2.3464565, 1)
+
+[node name="Empleado" type="Panel"]
+custom_minimum_size = Vector2(0, 120)
+offset_right = 1003.0
+offset_bottom = 120.0
+script = ExtResource("1_f6scd")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="imagenEmpleado" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 112.0
+offset_bottom = 108.0
+texture = ExtResource("1_o5sfl")
+expand_mode = 1
+
+[node name="nombreEmpleado" type="Label" parent="."]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 15.0
+offset_right = 361.0
+offset_bottom = 47.0
+text = "Nombre empleado"
+label_settings = SubResource("LabelSettings_f6scd")
+autowrap_mode = 3
+
+[node name="rol" type="Label" parent="."]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 15.0
+offset_right = 815.0
+offset_bottom = 47.0
+text = "Rol"
+label_settings = SubResource("LabelSettings_tvmve")
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 52.0
+offset_right = 943.0
+offset_bottom = 104.0
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

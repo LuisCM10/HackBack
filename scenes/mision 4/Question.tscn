@@ -1,0 +1,211 @@
+[gd_scene load_steps=22 format=3 uid="uid://cmqxne0ehgiju"]
+
+[ext_resource type="Script" uid="uid://d1miijwqhydkf" path="res://scripts/QuestionPanel.gd" id="1_qbe5o"]
+[ext_resource type="FontFile" uid="uid://eyjpv8ewbn7b" path="res://assests/fonts/retropix.ttf" id="2_7g38m"]
+[ext_resource type="Texture2D" uid="uid://bslp7dwf5etxt" path="res://assests/sprites/Enemies/enemies x1.png" id="3_7g38m"]
+[ext_resource type="AudioStream" uid="uid://i7lcq5gev38v" path="res://musica/musica3.mp3" id="4_lvkhk"]
+
+[sub_resource type="Theme" id="Theme_se34m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbe5o"]
+font = ExtResource("2_7g38m")
+font_size = 54
+font_color = Color(0.12000208, 0.31046394, 0.9999724, 1)
+
+[sub_resource type="Theme" id="Theme_gyg2d"]
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_7g38m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7g38m"]
+font_size = 44
+
+[sub_resource type="Theme" id="Theme_cd3p4"]
+default_font = ExtResource("2_7g38m")
+default_font_size = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvkhk"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(0, 736, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se34m"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(32, 736, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyg2d"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(64, 736, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhj7o"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(96, 736, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd3p4"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(128, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksqma"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(160, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbdj1"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(0, 704, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa73m"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(32, 704, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45jla"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(64, 704, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqp84"]
+atlas = ExtResource("3_7g38m")
+region = Rect2(96, 704, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1x2i3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvkhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyg2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhj7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd3p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksqma")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbdj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa73m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45jla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqp84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a37eo"]
+font = ExtResource("2_7g38m")
+font_size = 22
+font_color = Color(1, 0, 0, 1)
+
+[node name="Question" type="Panel"]
+script = ExtResource("1_qbe5o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(0, 0, 0.20784314, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 352.0
+offset_top = 20.0
+offset_right = 819.0
+offset_bottom = 137.0
+grow_horizontal = 2
+theme = SubResource("Theme_se34m")
+text = "Pregunta"
+label_settings = SubResource("LabelSettings_qbe5o")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+uppercase = true
+
+[node name="pregunta" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 115.0
+offset_top = 164.0
+offset_right = 1055.0
+offset_bottom = 265.0
+grow_horizontal = 2
+theme = SubResource("Theme_gyg2d")
+text = "Pregunta"
+label_settings = SubResource("LabelSettings_7g38m")
+vertical_alignment = 3
+autowrap_mode = 3
+justification_flags = 171
+uppercase = true
+
+[node name="opcion1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 340.0
+offset_right = 624.0
+offset_bottom = 417.0
+text = "Answer1"
+autowrap_mode = 3
+autowrap_trim_flags = 192
+
+[node name="opcion2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 468.0
+offset_right = 627.0
+offset_bottom = 548.0
+text = "Answer2
+"
+autowrap_mode = 3
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 13.0
+offset_right = 1143.0
+offset_bottom = 63.0
+theme = SubResource("Theme_cd3p4")
+text = "Salir"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(881, 422.00003)
+scale = Vector2(8.13672, 9.421876)
+sprite_frames = SubResource("SpriteFrames_1x2i3")
+animation = &"dead"
+
+[node name="lose" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 182.0
+offset_top = 604.0
+offset_right = 698.0
+offset_bottom = 628.0
+text = "Respuesta equivocada. Intentalo con esta otra pregunta"
+label_settings = SubResource("LabelSettings_a37eo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lvkhk")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="opcion1" to="." method="_on_opcion_1_pressed"]
+[connection signal="pressed" from="opcion2" to="." method="_on_opcion_2_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

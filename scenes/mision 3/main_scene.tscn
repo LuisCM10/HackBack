@@ -1,0 +1,231 @@
+[gd_scene load_steps=8 format=3 uid="uid://481xn28lkd83"]
+
+[ext_resource type="Script" uid="uid://dfmcsy6xsthkq" path="res://scripts/main.gd" id="1"]
+[ext_resource type="Script" uid="uid://1hpqccm4r0yi" path="res://scripts/cable.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://coplrwax54m4r" path="res://png/cablesfondo.png" id="2_gyfs4"]
+[ext_resource type="FontFile" uid="uid://caaxwy32pcddo" path="res://png/VCR_OSD_MONO_1.001.ttf" id="4_d5x1h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5x1h"]
+font = ExtResource("4_d5x1h")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_hq1ik"]
+font = ExtResource("4_d5x1h")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mm7a"]
+font = ExtResource("4_d5x1h")
+font_size = 39
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1536.0
+offset_bottom = 1024.0
+texture = ExtResource("2_gyfs4")
+stretch_mode = 6
+
+[node name="LeftPanel" type="Node2D" parent="."]
+position = Vector2(100, 200)
+
+[node name="Cable_Red" type="ColorRect" parent="LeftPanel"]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 130.0
+offset_bottom = 130.0
+pivot_offset = Vector2(25, 25)
+color = Color(1, 0.00999999, 0.00999999, 1)
+script = ExtResource("2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LeftPanel/Cable_Red"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 33.0
+text = "⚡"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Label2" type="Label" parent="LeftPanel/Cable_Red"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = 1.0
+offset_right = -7.0
+offset_bottom = 37.0
+text = "Energía"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Cable_Blue" type="ColorRect" parent="LeftPanel"]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 130.0
+offset_bottom = 230.0
+pivot_offset = Vector2(25, 25)
+color = Color(0, 0, 1, 1)
+script = ExtResource("2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LeftPanel/Cable_Blue"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 34.0
+text = "💻"
+label_settings = SubResource("LabelSettings_hq1ik")
+
+[node name="Label2" type="Label" parent="LeftPanel/Cable_Blue"]
+layout_mode = 0
+offset_left = -180.0
+offset_top = 3.0
+offset_right = -7.0
+offset_bottom = 33.0
+text = "Flujo de Datos"
+label_settings = SubResource("LabelSettings_hq1ik")
+
+[node name="Cable_Green" type="ColorRect" parent="LeftPanel"]
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 130.0
+offset_bottom = 330.0
+pivot_offset = Vector2(25, 25)
+color = Color(0, 1, 0, 1)
+script = ExtResource("2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LeftPanel/Cable_Green"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.033
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 34.01
+text = "🔋"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Label2" type="Label" parent="LeftPanel/Cable_Green"]
+layout_mode = 0
+offset_left = -103.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 33.0
+text = "Circuito"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Cable_Yellow" type="ColorRect" parent="LeftPanel"]
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 130.0
+offset_bottom = 430.0
+pivot_offset = Vector2(25, 25)
+color = Color(0.95244604, 0.9524457, 1.540184e-06, 1)
+script = ExtResource("2")
+
+[node name="Label" type="Label" parent="LeftPanel/Cable_Yellow"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 34.0
+text = "⚠️"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Label2" type="Label" parent="LeftPanel/Cable_Yellow"]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 3.0
+offset_right = -7.0
+offset_bottom = 34.0
+text = "Alerta"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="RightPanel" type="Node2D" parent="."]
+position = Vector2(700, 200)
+
+[node name="Target_Red" type="ColorRect" parent="RightPanel"]
+offset_left = 200.0
+offset_top = 400.0
+offset_right = 230.0
+offset_bottom = 430.0
+pivot_offset = Vector2(25, 25)
+color = Color(1, 0.011764706, 0.011764706, 1)
+
+[node name="Label" type="Label" parent="RightPanel/Target_Red"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 32.0
+text = "⚡"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Target_Blue" type="ColorRect" parent="RightPanel"]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 230.0
+offset_bottom = 130.0
+pivot_offset = Vector2(2, 25)
+color = Color(0, 0, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="RightPanel/Target_Blue"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 34.0
+text = "💻"
+label_settings = SubResource("LabelSettings_hq1ik")
+
+[node name="Target_Green" type="ColorRect" parent="RightPanel"]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 230.0
+offset_bottom = 230.0
+pivot_offset = Vector2(25, 25)
+color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="RightPanel/Target_Green"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 34.0
+text = "🔋"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="Target_Yellow" type="ColorRect" parent="RightPanel"]
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 230.0
+offset_bottom = 330.0
+pivot_offset = Vector2(25, 25)
+color = Color(0.9529412, 0.9529412, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="RightPanel/Target_Yellow"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 39.0
+offset_bottom = 33.0
+text = "⚠️"
+label_settings = SubResource("LabelSettings_d5x1h")
+
+[node name="LineDrawer" type="Node2D" parent="."]
+
+[node name="DragLine" type="Line2D" parent="LineDrawer"]
+
+[node name="PermanentLines" type="Node2D" parent="LineDrawer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 101.0
+offset_right = 1116.0
+offset_bottom = 210.0
+text = "         [ MÓDULO DE CONEXIÓN DE RED ]
+Reestablezca las líneas de datos para continuar"
+label_settings = SubResource("LabelSettings_8mm7a")
+metadata/_edit_use_anchors_ = true

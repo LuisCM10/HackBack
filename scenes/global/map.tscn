@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://boh6bflitxito"]
+
+[ext_resource type="Script" uid="uid://cr4edomep3o37" path="res://scripts/map.gd" id="1_4xfga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xfga"]
+bg_color = Color(0, 0, 0, 0.25490198)
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xfga")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xfga")
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 42.0
+offset_right = 1126.0
+offset_bottom = 564.0
+
+[node name="GraphEdit" type="GraphEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.0050000004
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 1126.0
+offset_bottom = 561.76
+grid_pattern = 1

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3ghrggeflxo"]
+
+[ext_resource type="Script" uid="uid://d3rcnux4mspt5" path="res://scripts/nodoElement.gd" id="1_oux3e"]
+
+[node name="NodoArbol" type="GraphElement"]
+offset_right = 97.0
+offset_bottom = 85.0
+script = ExtResource("1_oux3e")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
