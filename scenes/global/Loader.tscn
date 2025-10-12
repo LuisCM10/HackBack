@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckc685gve1abj"]
+
+[ext_resource type="Script" uid="uid://cevvveaece2np" path="res://scripts/global/utils/LoadScenes.gd" id="1_qdt43"]
+[ext_resource type="Texture2D" uid="uid://cxrjlhdep5vn" path="res://assets/img/inicio/WhatsApp Image 2025-10-10 at 23.28.35.png" id="2_s0vb6"]
+[ext_resource type="Texture2D" uid="uid://riqg3ivqqiys" path="res://assets/img/mapPreview/Prewiev1.jpg" id="3_qrxvl"]
+[ext_resource type="FontFile" uid="uid://dks6hcy4irrsf" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="4_keel3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4dcc"]
+font = ExtResource("4_keel3")
+font_size = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1cmb"]
+font_size = 17
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdt43")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 373.0
+offset_bottom = 212.0
+scale = Vector2(3.0910182, 3.0510626)
+texture = ExtResource("2_s0vb6")
+
+[node name="Preview" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.21002
+offset_top = -178.31
+offset_right = 279.03998
+offset_bottom = 119.81
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qrxvl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.19
+offset_top = -94.97998
+offset_right = 274.81
+offset_bottom = -45.97998
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="nivel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.46
+offset_top = 455.29
+offset_right = 673.46
+offset_bottom = 489.29
+text = "Nivel #"
+label_settings = SubResource("LabelSettings_m4dcc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 354.11
+offset_top = 524.26
+offset_right = 762.11
+offset_bottom = 548.26
+text = "Cargando..."
+label_settings = SubResource("LabelSettings_w1cmb")

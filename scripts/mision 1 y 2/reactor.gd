@@ -30,26 +30,31 @@ var buttons: Array = []
 var score: int = 0
 var juego_terminado: bool = false  
 
+var puertas_inst
+var loading = false
+
 func _ready():
 	rng.randomize()
 	_build_grid()
 	_compute_indicator_positions()
 	reset_game()
-
 	score = 0
 	_update_score_label()
-
-
 	progress_bar.min_value = 0
 	progress_bar.max_value = 3
 	progress_bar.value = 0
-
-
-
 	submit_button.pressed.connect(Callable(self, "_check_answer"))
-
 	call_deferred("start_round")
 	indicator.visible = false
+	cambiar_escena_asincrona()
+
+func _process(delta: float) -> void:
+	if loading:
+		_loading()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("salir"):
+		salioDelJuego()
 
 
 func _build_grid():
@@ -199,7 +204,7 @@ func _check_answer():
 	if answer == "3":
 		question_label.text = "¡Es correcto, lo lograste!"
 		await get_tree().create_timer(1.0).timeout
-		get_tree().quit()
+		siguientenivel()
 	else:
 		question_label.text = "Incorrecto. Intenta de nuevo."
 		return
@@ -211,3 +216,39 @@ func _notification(what):
 
 func _on_submit_button_pressed() -> void:
 	pass
+
+func cambiar_escena_asincrona():
+	if not loading:
+		loading = true
+		ResourceLoader.load_threaded_request(LoadResources.puerta)
+		print("Iniciando carga asíncrona de: ", LoadResources.puerta)
+		
+func _loading():
+	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
+	match status:
+		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			var progress = []
+			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
+			print("Progreso: ", porcentaje * 100, "%")
+
+		ResourceLoader.THREAD_LOAD_LOADED:
+			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
+			if recurso is PackedScene:
+				puertas_inst = recurso
+			else:
+				print("Error: El recurso no es una PackedScene")
+			loading = false
+
+		ResourceLoader.THREAD_LOAD_FAILED:
+			print("Error al cargar la escena: ", Resources.puerta)
+			loading = false
+			
+func siguientenivel():
+	if ResourceLoader.THREAD_LOAD_LOADED:
+		get_tree().change_scene_to_packed(puertas_inst)
+		print("Escena cargada y cambiada exitosamente")
+	pass
+	
+func salioDelJuego():
+	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
+	get_tree().change_scene_to_file(scene_Inicio)

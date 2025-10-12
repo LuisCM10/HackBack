@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwxol3220i2o0"]
+
+[ext_resource type="Script" uid="uid://cigmaxeanokwa" path="res://scripts/npcs/npc_final.gd" id="1_uydm1"]
+[ext_resource type="Texture2D" uid="uid://d1bjgqj5l5ies" path="res://assets/Tileset/Chomb2.png" id="2_1v8fd"]
+[ext_resource type="Texture2D" uid="uid://i6fut753nh46" path="res://assets/Tileset/2757.png" id="3_lwe0o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57epj"]
+atlas = ExtResource("2_1v8fd")
+region = Rect2(0, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rvcv"]
+atlas = ExtResource("2_1v8fd")
+region = Rect2(32, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo00a"]
+atlas = ExtResource("2_1v8fd")
+region = Rect2(64, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e0i2"]
+atlas = ExtResource("2_1v8fd")
+region = Rect2(96, 34, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4mvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57epj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rvcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo00a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e0i2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ykja"]
+radius = 28.160255
+
+[node name="NpcFinal" type="Area2D"]
+script = ExtResource("1_uydm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q4mvo")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7ykja")
+
+[node name="ExclamationMark" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(10, -22)
+rotation = 0.25146908
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_lwe0o")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dg0yo03lxac18"
+path="res://.godot/imported/DialogoNpcHoja.dialogue-7cd0266aa61052058f568806377a91fe.tres"
+
+[deps]
+
+source_file="res://Dialogues/DialogoNpcHoja.dialogue"
+dest_files=["res://.godot/imported/DialogoNpcHoja.dialogue-7cd0266aa61052058f568806377a91fe.tres"]
+
+[params]
+
+defaults=true

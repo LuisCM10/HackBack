@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://ld3go1vsival"]
+
+[ext_resource type="Script" uid="uid://dua8yb6m6uu2s" path="res://scripts/objetos/hacer_patrón_mision_5.gd" id="1_0rgkq"]
+[ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="2_ewrar"]
+[ext_resource type="PackedScene" uid="uid://ui0wppwpxgmb" path="res://scenes/Objetos/interactable.tscn" id="3_5mx33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4863d"]
+atlas = ExtResource("2_ewrar")
+region = Rect2(352, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2joav"]
+atlas = ExtResource("2_ewrar")
+region = Rect2(384, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkkie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4863d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2joav")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0o7p"]
+size = Vector2(27, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nld1"]
+size = Vector2(59, 35)
+
+[node name="HacerPatrónMision5" type="Area2D"]
+script = ExtResource("1_0rgkq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gkkie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_q0o7p")
+
+[node name="Interactable" parent="." instance=ExtResource("3_5mx33")]
+interact_name = "Seguir patrón"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_8nld1")

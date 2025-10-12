@@ -1,13 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg3ghrggeflxo"]
+[gd_scene load_steps=3 format=3 uid="uid://bg3ghrggeflxo"]
 
 [ext_resource type="Script" uid="uid://bo40kgw5rulib" path="res://scripts/global/utils/nodoElement.gd" id="1_oux3e"]
 
-[node name="NodoArbol" type="GraphElement"]
-offset_right = 97.0
-offset_bottom = 85.0
+[sub_resource type="ImageTexture" id="ImageTexture_id3sf"]
+
+[node name="NodoArbol" type="GraphNode"]
+offset_top = 1.0
+offset_right = 73.0
+offset_bottom = 64.0
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
 script = ExtResource("1_oux3e")
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
+texture_normal = SubResource("ImageTexture_id3sf")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

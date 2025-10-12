@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://k1mkbl27noyn"]
+
+[ext_resource type="Script" uid="uid://dxbklqu1b6thf" path="res://scripts/objetos/ComputadorMision1.gd" id="1_7oyv0"]
+[ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="1_u7h5k"]
+[ext_resource type="PackedScene" uid="uid://ui0wppwpxgmb" path="res://scenes/Objetos/interactable.tscn" id="3_6ob7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1kox"]
+atlas = ExtResource("1_u7h5k")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbp15"]
+atlas = ExtResource("1_u7h5k")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3eyd"]
+atlas = ExtResource("1_u7h5k")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hopxy"]
+atlas = ExtResource("1_u7h5k")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3whh"]
+atlas = ExtResource("1_u7h5k")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3eyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1kox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbp15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3eyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hopxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3whh")
+}],
+"loop": true,
+"name": &"prende",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v0fw"]
+size = Vector2(23, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v177r"]
+radius = 19.0
+
+[node name="ComputadorMision1" type="Area2D"]
+script = ExtResource("1_7oyv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+sprite_frames = SubResource("SpriteFrames_h3eyd")
+animation = &"prende"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_2v0fw")
+
+[node name="Interactable" parent="." instance=ExtResource("3_6ob7p")]
+interact_name = "Usar Pc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_v177r")

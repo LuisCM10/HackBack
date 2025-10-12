@@ -2,8 +2,7 @@ class_name Arbol
 
 var raiz: Nodo
 var random = RandomNumberGenerator.new()
-signal _graficarNodo(nodo : Nodo, izq, der)
-
+var nCentralSeguro : Nodo
 
 func altura_nodo(nodo: Nodo) -> int:
 	if nodo == null:
@@ -44,14 +43,15 @@ func rotar_izq(y: Nodo) -> Nodo:
 
 func insertar(scene, iconpath):
 	var i = random.randi_range(1,50)
+	while (existe_clave(i)):
+		i = random.randi_range(1,50)
 	raiz = insertar_rec(scene, raiz, i, iconpath)
+	nCentralSeguro = nodo_mas_lejano()
 	
-
 func insertar_rec(scene, nodo: Nodo, i : int, iconpath) -> Nodo:
 	if nodo == null:		
 		var nuevo : Nodo = Nodo.new()
-		nuevo.actualizar(scene, i, iconpath)
-		nuevo._isVisited.connect(_Nodo_visitado)		
+		nuevo.actualizar(scene, i, iconpath)	
 		return nuevo
 
 	if i < nodo.i:
@@ -86,32 +86,28 @@ func insertar_rec(scene, nodo: Nodo, i : int, iconpath) -> Nodo:
 		nodo.der = rotar_der(nodo.der)
 		return rotar_izq(nodo)
 	
+	
 	return nodo
 
-func _Nodo_visitado(nodo : Nodo, izq, der) -> void:
-	_graficarNodo.emit(nodo, izq, der)
-	print("Señal emitida class Arbol")
-
-# Función principal: Encuentra el nodo más lejano desde la raíz
 func nodo_mas_lejano() -> Nodo:
 	if raiz == null:
 		return null
 	
-	var cola: Array = []  # Cola de [nodo, profundidad]
+	var cola: Array = []
 	cola.append([raiz, 0])
 	
 	var nodo_lejano: Nodo = null
 	var max_prof: int = -1
 	
 	while not cola.is_empty():
-		var actual = cola.pop_front()  # FIFO
+		var actual = cola.pop_front()
 		var nodo_actual: Nodo = actual[0]
 		var prof_actual: int = actual[1]
 		
 		if prof_actual > max_prof:
 			max_prof = prof_actual
 			nodo_lejano = nodo_actual
-			print("Nuevo lejano en BFS: ", nodo_actual.i, " prof: ", prof_actual)
+			
 		
 		# Agrega hijos a la cola
 		if nodo_actual.izq != null:
@@ -119,4 +115,21 @@ func nodo_mas_lejano() -> Nodo:
 		if nodo_actual.der != null:
 			cola.append([nodo_actual.der, prof_actual + 1])
 	
+	print("Nuevo lejano en BFS: ",nodo_lejano.i, " prof: ", max_prof)
 	return nodo_lejano
+
+func nivel_nodo(nodo : Nodo, raiz: Nodo) -> int:
+	if nodo == raiz:
+		return 0
+	return 1 + (nivel_nodo(nodo, raiz.izq) if raiz.i > nodo.i else nivel_nodo(nodo, raiz.der))
+	
+func existe_clave(clave_buscar: int) -> bool:
+	var actual = raiz
+	while actual != null:
+		if clave_buscar < actual.i:
+			actual = actual.izq
+		elif clave_buscar > actual.i:
+			actual = actual.der
+		else:
+			return true
+	return false

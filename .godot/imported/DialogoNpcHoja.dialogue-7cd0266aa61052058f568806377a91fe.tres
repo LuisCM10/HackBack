@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_al0o1"]
+
+[resource]
+script = ExtResource("1_al0o1")
+using_states = PackedStringArray()
+character_names = PackedStringArray("Sr Hojita", "Jugador")
+lines = {
+"0": {
+&"character": "Sr Hojita",
+&"id": "0",
+&"next_id": "1",
+&"text": "[wave]Hola jugador[/wave], qué haces por aquí?",
+&"type": "dialogue"
+},
+"1": {
+&"id": "1",
+&"next_id": "2",
+&"responses": PackedStringArray("1", "3"),
+&"text": "Quién eres?",
+&"type": "response"
+},
+"2": {
+&"character": "Sr Hojita",
+&"id": "2",
+&"next_id": "5",
+&"text": "Soy el gurdián de los nodos hoja, pero desafortunadamente no estás en la hoja que estás buscando",
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"text": "Dónde estoy?",
+&"type": "response"
+},
+"4": {
+&"character": "Sr Hojita",
+&"id": "4",
+&"next_id": "5",
+&"text": "Llegaste a un callejón sin salida, estás en una de [wave]las hojas del árbol[/wave]",
+&"type": "dialogue"
+},
+"5": {
+&"character": "Jugador",
+&"id": "5",
+&"next_id": "6",
+&"text": "Qué hago ahora?",
+&"type": "dialogue"
+},
+"6": {
+&"character": "Sr Hojita",
+&"id": "6",
+&"next_id": "8",
+&"text": "Has perdido, pero tienes otra oportunidad, te devolveré al nodo anterior, esta vez, piensa mejor [wave] sobre que camino escoger[/wave]",
+&"type": "dialogue"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"type": ""
+},
+"8": {
+&"id": "8",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "Sr Hojita: [wave]Hola jugador[/wave], qué haces por aquí?
+- Quién eres?
+	Sr Hojita: Soy el gurdián de los nodos hoja, pero desafortunadamente no estás en la hoja que estás buscando
+- Dónde estoy?
+	Sr Hojita: Llegaste a un callejón sin salida, estás en una de [wave]las hojas del árbol[/wave] 
+Jugador: Qué hago ahora?
+Sr Hojita: Has perdido, pero tienes otra oportunidad, te devolveré al nodo anterior, esta vez, piensa mejor [wave] sobre que camino escoger[/wave]
+"
+metadata/dialogue_manager_version = "3.7.1"

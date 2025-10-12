@@ -21,29 +21,27 @@ var arbol : Arbol
 var raiz
 
 var musica_activa = true
-
+var loading = false
+var scene_init
 
 func _ready():
+	Resources.iniciarJuego()	
+	arbol = Resources.arbol
+	raiz = arbol.raiz
 	panel.visible = false
-
-	# Conectar botones a sus funciones
-	boton_config.pressed.connect(_on_boton_configuracion_pressed)
-	boton_cerrar.pressed.connect(_on_boton_cerrar_pressed)
-	boton_quitar_musica.pressed.connect(_on_boton_quitar_musica_pressed)
-	boton_salir.pressed.connect(_on_boton_salir_pressed)
-	boton_inicio.pressed.connect(_on_boton_inicio_pressed)
+	var mapa = preload("res://scenes/global/map.tscn").instantiate()
+	GlobalState.iniciarMapa(mapa)
 
 	_actualizar_icono_musica()
-
 
 # ===========================
 # Funciones de botones
 # ===========================
 
-func _on_boton_configuracion_pressed():
+func _on_settings_pressed():
 	mostrar_Config(false)
 
-func _on_boton_cerrar_pressed():
+func _on_cerrar_button_pressed():
 	mostrar_Config(true)
 
 func _on_boton_quitar_musica_pressed():
@@ -55,18 +53,14 @@ func _on_boton_quitar_musica_pressed():
 		musica_activa = true
 	_actualizar_icono_musica()
 
-func _on_boton_salir_pressed():
+func _on_salir_pressed():
 	get_tree().quit()
 
 func _on_boton_inicio_pressed():
+	GlobalState.set_nodoActual(raiz)
+	get_tree().change_scene_to_file(GlobalState.Loader)
 	print("Oprime boton inicio")
-	await Map.iniciarJuego()	
-	arbol = Map.arbol
-	raiz = arbol.raiz.scene.instantiate()
-	get_tree().current_scene.add_child(raiz)
-	ocultar()
-
-
+	
 # ===========================
 # Función de icono de música
 # ===========================

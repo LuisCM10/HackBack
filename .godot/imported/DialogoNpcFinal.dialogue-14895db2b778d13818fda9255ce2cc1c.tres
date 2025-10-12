@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7kp7b"]
+
+[resource]
+script = ExtResource("1_7kp7b")
+using_states = PackedStringArray()
+character_names = PackedStringArray("Rey hojita")
+lines = {
+"0": {
+&"character": "Rey hojita",
+&"id": "0",
+&"next_id": "1",
+&"text": "[wave]Bienvenido jugador[/wave], felicitaciones, llegaste al nivel más alto del árbol.",
+&"type": "dialogue"
+},
+"1": {
+&"id": "1",
+&"next_id": "2",
+&"responses": PackedStringArray("1"),
+&"text": "Qué pasará ahora?",
+&"type": "response"
+},
+"2": {
+&"character": "Rey hojita",
+&"id": "2",
+&"next_id": "3",
+&"text": "Lograste cumplir todas las misiones, salvaste la vida de este lugar, serás recompensado con un 5.0 en tu nota de laboratorio, gracias por tu servicio.",
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "Rey hojita: [wave]Bienvenido jugador[/wave], felicitaciones, llegaste al nivel más alto del árbol.
+- Qué pasará ahora?
+	Rey hojita: Lograste cumplir todas las misiones, salvaste la vida de este lugar, serás recompensado con un 5.0 en tu nota de laboratorio, gracias por tu servicio."
+metadata/dialogue_manager_version = "3.7.1"

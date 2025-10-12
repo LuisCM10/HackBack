@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://boh6bflitxito"]
 
-[ext_resource type="Script" uid="uid://c0nrmhvs12y73" path="res://scripts/global/map.gd" id="1_4xfga"]
+[ext_resource type="Script" uid="uid://c0nrmhvs12y73" path="res://scripts/global/utils/map.gd" id="1_4xfga"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xfga"]
 bg_color = Color(0, 0, 0, 0.25490198)
@@ -19,13 +19,6 @@ layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 649.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4xfga")
-
-[node name="ColorRect" type="ColorRect" parent="Panel"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 42.0
-offset_right = 1126.0
-offset_bottom = 564.0
 
 [node name="GraphEdit" type="GraphEdit" parent="Panel"]
 layout_mode = 1

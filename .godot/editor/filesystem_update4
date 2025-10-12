@@ -1,6 +1,40 @@
 res://scenes/inicio/menuinicio.tscn
-res://scripts/inicio/menuinicio.gd
-res://scripts/global/loadResources.gd
+res://scenes/cuarto_misión_2.tscn
 res://scripts/global/map.gd
-res://scripts/global/utils/arbol.gd
+res://scenes/EscenaMision1Computador.tscn
+res://scenes/escena_mision_3.tscn
+res://scenes/escena_mision_4.tscn
+res://scenes/escena_mision_5.tscn
+res://scripts/global/loadResources.gd
+res://scripts/global/GlobalState.gd
+res://scripts/inicio/menuinicio.gd
+res://scripts/objetos/cuarto_misión_2.gd
+res://scripts/objetos/interactable.gd
+res://scripts/mision 4/control.gd
+res://scripts/cuarto_misión_2.gd
 res://scripts/global/utils/Nodo.gd
+res://scripts/mision 4/QuestionPanel.gd
+res://scripts/mision 5/control_permisos_user.gd
+res://scripts/mision 5/control_inir.gd
+res://scripts/objetos/interacting_component.gd
+res://scripts/mision 3/main.gd
+res://scripts/objetos/ComputadorMision1.gd
+res://scripts/mision 1 y 2/dataTask.gd
+res://scripts/mision 1 y 2/reactor.gd
+res://scripts/objetos/puerta_izq.gd
+res://scripts/objetos/puerta_der.gd
+res://scripts/objetos/mapa.gd
+res://scripts/npcs/npc.gd
+res://scripts/npcs/npc_final.gd
+res://scenes/escena_final.tscn
+res://scripts/global/utils/arbol.gd
+res://scripts/global/utils/nodoElement.gd
+res://scenes/global/utils/graph_element.tscn
+res://scripts/global/utils/LoadScenes.gd
+res://scripts/global/Resources.gd
+res://scripts/objetos/cargar_archivos_mision_4.gd
+res://scripts/objetos/hacer_patrón_mision_5.gd
+res://scripts/objetos/pantalla_verificar_usuarios_mision_3.gd
+res://Player/player.gd
+res://scenes/Objetos/cables_mision_2.tscn
+res://scripts/objetos/cables_mision_2.gd

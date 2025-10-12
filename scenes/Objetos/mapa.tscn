@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjwvkdppiycc"]
+
+[ext_resource type="Script" uid="uid://7deeipfyp8e5" path="res://scripts/objetos/mapa.gd" id="1_vm3su"]
+[ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="2_u55js"]
+[ext_resource type="PackedScene" uid="uid://ui0wppwpxgmb" path="res://scenes/Objetos/interactable.tscn" id="3_kbneb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkfvo"]
+atlas = ExtResource("2_u55js")
+region = Rect2(0, 165, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykhg3"]
+atlas = ExtResource("2_u55js")
+region = Rect2(0, 132, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1efw"]
+atlas = ExtResource("2_u55js")
+region = Rect2(64, 132, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkwsl"]
+atlas = ExtResource("2_u55js")
+region = Rect2(128, 132, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq38d"]
+atlas = ExtResource("2_u55js")
+region = Rect2(192, 132, 64, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lxf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkfvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykhg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1efw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkwsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq38d")
+}],
+"loop": true,
+"name": &"prender",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl0av"]
+size = Vector2(47, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kconx"]
+size = Vector2(78, 30)
+
+[node name="Mapa" type="Area2D"]
+script = ExtResource("1_vm3su")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1lxf8")
+animation = &"prender"
+frame_progress = 0.37571743
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_nl0av")
+
+[node name="Interactable" parent="." instance=ExtResource("3_kbneb")]
+interact_name = "Ver mapa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_kconx")

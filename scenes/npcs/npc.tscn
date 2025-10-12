@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://b62lybhm2bsrb"]
+
+[ext_resource type="Script" uid="uid://dcghmijsxjdgq" path="res://scripts/npcs/npc.gd" id="1_g6unj"]
+[ext_resource type="Texture2D" uid="uid://g5srtplv7lxp" path="res://assets/Tileset/Chomb1.png" id="2_h1ryf"]
+[ext_resource type="Texture2D" uid="uid://i6fut753nh46" path="res://assets/Tileset/2757.png" id="3_g6unj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6atyd"]
+atlas = ExtResource("2_h1ryf")
+region = Rect2(0, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkex"]
+atlas = ExtResource("2_h1ryf")
+region = Rect2(32, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gudg"]
+atlas = ExtResource("2_h1ryf")
+region = Rect2(64, 34, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi7up"]
+atlas = ExtResource("2_h1ryf")
+region = Rect2(96, 34, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6nw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6atyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gudg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi7up")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4syp"]
+radius = 24.04163
+
+[node name="NPC" type="Area2D"]
+script = ExtResource("1_g6unj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a6nw3")
+animation = &"idle"
+frame_progress = 0.16097711
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b4syp")
+
+[node name="ExclamationMark" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(7, -18.999998)
+rotation = 0.3955688
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_g6unj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

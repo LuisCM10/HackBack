@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://0cxbeoprflc5"]
+
+[ext_resource type="Script" uid="uid://ddks57aatyh6u" path="res://scripts/objetos/cargar_archivos_mision_4.gd" id="1_d7ium"]
+[ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="1_xoram"]
+[ext_resource type="PackedScene" uid="uid://ui0wppwpxgmb" path="res://scenes/Objetos/interactable.tscn" id="2_d7ium"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85otd"]
+atlas = ExtResource("1_xoram")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xglv2"]
+atlas = ExtResource("1_xoram")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_467w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85otd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xglv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qubno"]
+size = Vector2(29, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4u5"]
+size = Vector2(52, 26.5)
+
+[node name="CargarArchivosMision4" type="Area2D"]
+script = ExtResource("1_d7ium")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_467w0")
+frame_progress = 0.21317959
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_qubno")
+
+[node name="Interactable" parent="." instance=ExtResource("2_d7ium")]
+interact_name = "Cargar Archivos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_8g4u5")
