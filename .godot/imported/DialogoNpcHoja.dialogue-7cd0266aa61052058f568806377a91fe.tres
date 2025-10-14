@@ -52,7 +52,7 @@ lines = {
 &"character": "Sr Hojita",
 &"id": "6",
 &"next_id": "8",
-&"text": "Has perdido, pero tienes otra oportunidad, te devolveré al nodo anterior, esta vez, piensa mejor [wave] sobre que camino escoger[/wave]",
+&"text": "Has perdido, pero tienes otra oportunidad, te devolveré al inicio, no perderás el progreso, pero esta vez, piensa mejor [wave] sobre que camino escoger[/wave]",
 &"type": "dialogue"
 },
 "7": {
@@ -74,6 +74,6 @@ raw_text = "Sr Hojita: [wave]Hola jugador[/wave], qué haces por aquí?
 - Dónde estoy?
 	Sr Hojita: Llegaste a un callejón sin salida, estás en una de [wave]las hojas del árbol[/wave] 
 Jugador: Qué hago ahora?
-Sr Hojita: Has perdido, pero tienes otra oportunidad, te devolveré al nodo anterior, esta vez, piensa mejor [wave] sobre que camino escoger[/wave]
+Sr Hojita: Has perdido, pero tienes otra oportunidad, te devolveré al inicio, no perderás el progreso, pero esta vez, piensa mejor [wave] sobre que camino escoger[/wave]
 "
 metadata/dialogue_manager_version = "3.7.1"

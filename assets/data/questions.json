@@ -1,162 +1,162 @@
 [
   {
-    "text": "¿Qué es una contraseña segura?",
-    "options": [
-      "Una contraseña corta y fácil de recordar",
+	"text": "¿Qué es una contraseña segura?",
+	"options": [
+	  "Una contraseña corta y fácil de recordar",
       "Una contraseña larga, con letras, números y símbolos"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué debes hacer si recibes un correo sospechoso con un enlace?",
-    "options": [
-      "Hacer clic para ver de qué se trata",
+	"text": "¿Qué debes hacer si recibes un correo sospechoso con un enlace?",
+	"options": [
+	  "Hacer clic para ver de qué se trata",
       "No abrirlo y reportarlo al área de seguridad o eliminarlo"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es el phishing?",
-    "options": [
-      "Un tipo de ataque para robar información personal simulando ser una fuente confiable",
+	"text": "¿Qué es el phishing?",
+	"options": [
+	  "Un tipo de ataque para robar información personal simulando ser una fuente confiable",
       "Un software de protección antivirus"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Es recomendable usar la misma contraseña en todas tus cuentas?",
-    "options": [
-      "Sí, así es más fácil recordarlas",
+	"text": "¿Es recomendable usar la misma contraseña en todas tus cuentas?",
+	"options": [
+	  "Sí, así es más fácil recordarlas",
       "No, se deben usar contraseñas diferentes para cada cuenta"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué debes hacer antes de descargar una aplicación?",
-    "options": [
-      "Verificar su origen y los permisos que solicita",
+	"text": "¿Qué debes hacer antes de descargar una aplicación?",
+	"options": [
+	  "Verificar su origen y los permisos que solicita",
       "Descargarla directamente sin revisar"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Por qué es importante mantener el software actualizado?",
-    "options": [
-      "Para mejorar el rendimiento del equipo",
+	"text": "¿Por qué es importante mantener el software actualizado?",
+	"options": [
+	  "Para mejorar el rendimiento del equipo",
       "Porque las actualizaciones corrigen fallos de seguridad"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es un ransomware?",
-    "options": [
-      "Un tipo de malware que bloquea el acceso a tus archivos hasta pagar un rescate",
+	"text": "¿Qué es un ransomware?",
+	"options": [
+	  "Un tipo de malware que bloquea el acceso a tus archivos hasta pagar un rescate",
       "Un programa de respaldo de datos"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué es una red Wi-Fi pública?",
-    "options": [
-      "Una red segura solo para empleados",
+	"text": "¿Qué es una red Wi-Fi pública?",
+	"options": [
+	  "Una red segura solo para empleados",
       "Una red abierta que puede ser insegura"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué deberías hacer antes de conectarte a una red Wi-Fi pública?",
-    "options": [
-      "Usar una VPN y evitar acceder a información sensible",
+	"text": "¿Qué deberías hacer antes de conectarte a una red Wi-Fi pública?",
+	"options": [
+	  "Usar una VPN y evitar acceder a información sensible",
       "Conectarte sin precauciones"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué significa MFA o autenticación multifactor?",
-    "options": [
-      "Usar varios dispositivos al mismo tiempo",
+	"text": "¿Qué significa MFA o autenticación multifactor?",
+	"options": [
+	  "Usar varios dispositivos al mismo tiempo",
       "Usar más de un método para verificar tu identidad"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es el malware?",
-    "options": [
-      "Un software malicioso diseñado para dañar o robar información",
+	"text": "¿Qué es el malware?",
+	"options": [
+	  "Un software malicioso diseñado para dañar o robar información",
       "Un programa de mantenimiento del sistema"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué es un firewall?",
-    "options": [
-      "Una barrera que filtra el tráfico de red para proteger el sistema",
+	"text": "¿Qué es un firewall?",
+	"options": [
+	  "Una barrera que filtra el tráfico de red para proteger el sistema",
       "Un virus informático"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué información personal nunca debes compartir en redes sociales?",
-    "options": [
-      "Tu comida favorita",
+	"text": "¿Qué información personal nunca debes compartir en redes sociales?",
+	"options": [
+	  "Tu comida favorita",
       "Tu dirección, contraseñas o datos bancarios"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué debes hacer si crees que tu cuenta fue hackeada?",
-    "options": [
-      "Ignorarlo",
+	"text": "¿Qué debes hacer si crees que tu cuenta fue hackeada?",
+	"options": [
+	  "Ignorarlo",
       "Cambiar la contraseña y notificar al soporte del servicio"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es el spyware?",
-    "options": [
-      "Un programa que espía tus actividades sin permiso",
+	"text": "¿Qué es el spyware?",
+	"options": [
+	  "Un programa que espía tus actividades sin permiso",
       "Un sistema operativo seguro"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué debes hacer si un compañero te pide tu contraseña de trabajo?",
-    "options": [
-      "Dársela si confías en él",
+	"text": "¿Qué debes hacer si un compañero te pide tu contraseña de trabajo?",
+	"options": [
+	  "Dársela si confías en él",
       "Nunca compartir contraseñas con nadie"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es el spoofing?",
-    "options": [
-      "La suplantación de identidad digital para engañar a otros",
+	"text": "¿Qué es el spoofing?",
+	"options": [
+	  "La suplantación de identidad digital para engañar a otros",
       "Un tipo de cortafuegos de red"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Por qué es importante hacer copias de seguridad regularmente?",
-    "options": [
-      "Para recuperar los datos en caso de pérdida o ataque",
+	"text": "¿Por qué es importante hacer copias de seguridad regularmente?",
+	"options": [
+	  "Para recuperar los datos en caso de pérdida o ataque",
       "Porque ocupa menos espacio en el disco"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   },
   {
-    "text": "¿Qué debes hacer al usar dispositivos USB desconocidos?",
-    "options": [
-      "Conectarlos directamente al computador",
+	"text": "¿Qué debes hacer al usar dispositivos USB desconocidos?",
+	"options": [
+	  "Conectarlos directamente al computador",
       "Evitar usarlos o escanearlos con antivirus primero"
-    ],
-    "answer": 2
+	],
+	"answer": 2
   },
   {
-    "text": "¿Qué es la ingeniería social?",
-    "options": [
-      "El uso de técnicas psicológicas para manipular a las personas y obtener información",
+	"text": "¿Qué es la ingeniería social?",
+	"options": [
+	  "El uso de técnicas psicológicas para manipular a las personas y obtener información",
       "Una rama de la ingeniería civil"
-    ],
-    "answer": 1
+	],
+	"answer": 1
   }
 ]

@@ -51,6 +51,7 @@ offset_right = 435.0
 offset_bottom = 83.0
 text = "Empleados - Permisos"
 label_settings = SubResource("LabelSettings_abhr8")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
@@ -60,6 +61,7 @@ offset_right = 1099.0
 offset_bottom = 140.0
 text = "El ataque que estamos sufriendo a cambiado los permisos de algunos empleados, necesitamos tu ayuda para que vuelvan a la normalidad. Establecele los permisos correctos segun el rol del empleado. Confiamos en ti!!"
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="HighPriority" type="Sprite2D" parent="Panel"]
 position = Vector2(88.5, 99)
@@ -80,6 +82,7 @@ offset_bottom = 247.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kohnk")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
@@ -109,16 +112,18 @@ offset_right = 940.0
 offset_bottom = 624.0
 theme = SubResource("Theme_foaol")
 text = "Salir"
+metadata/_edit_use_anchors_ = true
 
 [node name="error" type="Label" parent="."]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 583.0
-offset_right = 771.0
-offset_bottom = 632.0
+offset_left = 72.0
+offset_top = 581.0
+offset_right = 780.0
+offset_bottom = 630.0
 text = "Algun(os) permiso(s) se encuentra(n) aun incorrectos. Por favor corriguelos, se que puedes lograrlo."
 label_settings = SubResource("LabelSettings_1luew")
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_wxapw")

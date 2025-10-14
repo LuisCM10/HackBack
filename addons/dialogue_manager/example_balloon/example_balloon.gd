@@ -10,6 +10,8 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## The dialogue resource
 var resource: DialogueResource
 
+signal finished
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -32,6 +34,7 @@ var dialogue_line: DialogueLine:
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
+			emit_signal("finished")
 			queue_free()
 	get:
 		return dialogue_line

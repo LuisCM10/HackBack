@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://ulavvd37gx0g"]
 
 [ext_resource type="Script" uid="uid://wdy832bli4ow" path="res://scripts/inicio/menuinicio.gd" id="1_043yh"]
-[ext_resource type="Texture2D" uid="uid://dd61o2tsfjufp" path="res://assets/img/inicio/MenuInicio (1).jpeg" id="1_q3pb6"]
-[ext_resource type="Texture2D" uid="uid://cxrjlhdep5vn" path="res://assets/img/inicio/WhatsApp Image 2025-10-10 at 23.28.35.png" id="3_prmyc"]
+[ext_resource type="Texture2D" uid="uid://j1d5rikgln1g" path="res://assets/img/inicio/MenuInicio.png" id="2_bg8pj"]
 [ext_resource type="AudioStream" uid="uid://dixwkp8p8jdna" path="res://assets/music/musica 5.mp3" id="4_dvr5v"]
 [ext_resource type="Texture2D" uid="uid://c76v60i0krlty" path="res://assets/img/inicio/configuracion.png" id="4_prmyc"]
+[ext_resource type="Texture2D" uid="uid://cxlmbpjrfvg7a" path="res://Instrucciones.png" id="5_2phtj"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -20,58 +20,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -2.0
-offset_right = -2.0
-offset_bottom = 3.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_q3pb6")
-
-[node name="PanelConfiguracion" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 652.0
-
-[node name="TextureRect" type="TextureRect" parent="PanelConfiguracion"]
-layout_mode = 0
-offset_right = 1148.0
-offset_bottom = 648.0
-texture = ExtResource("3_prmyc")
-
-[node name="LabelInstrucciones" type="Label" parent="PanelConfiguracion"]
-layout_mode = 0
-offset_left = 207.0
-offset_top = 192.0
-offset_right = 976.0
-offset_bottom = 423.0
-text = "                                                                              Instrucciones:
-
--Para el movimiento del jugador debe utilizar las letras A(Izquierda),W(arriba), S(abajo) y D(Derecha)
-
-                                     -Para interactuar dentro del juego debe utilizar la tecla E
-
-                                           -El jugador ganará si logra llegar al nodo central
-
-                                              -Para salir del juego debe utilizar la tecla esc"
-
-[node name="CerrarButton" type="Button" parent="PanelConfiguracion"]
-layout_mode = 0
-offset_left = 379.0
-offset_top = 483.0
-offset_right = 853.0
-offset_bottom = 557.0
-text = "cerrar
-"
-
-[node name="BotonQuitarMusica" type="TextureButton" parent="PanelConfiguracion"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.017
-offset_left = 545.0
-offset_top = 107.0
-offset_right = 607.45
-offset_bottom = 176.0
+texture = ExtResource("2_bg8pj")
+expand_mode = 1
 
 [node name="BotonConfiguracion" type="Button" parent="."]
 layout_mode = 0
@@ -88,24 +44,55 @@ flat = true
 stream = ExtResource("4_dvr5v")
 autoplay = true
 
-[node name="salir" type="Button" parent="."]
-layout_mode = 0
-offset_left = 469.0
-offset_top = 528.0
-offset_right = 644.0
-offset_bottom = 578.0
-flat = true
-
 [node name="BotonInicio" type="Button" parent="."]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 426.0
-offset_right = 763.0
-offset_bottom = 498.0
+offset_left = 188.0
+offset_top = 368.0
+offset_right = 993.0
+offset_bottom = 440.0
 flat = true
 
+[node name="salir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 483.0
+offset_right = 756.0
+offset_bottom = 541.0
+flat = true
+
+[node name="PanelConfiguracion" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelConfiguracion"]
+layout_mode = 0
+offset_right = 2308.0
+offset_bottom = 1300.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_2phtj")
+
+[node name="CerrarButton" type="Button" parent="PanelConfiguracion"]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 465.0
+offset_right = 1110.0
+offset_bottom = 568.0
+flat = true
+
+[node name="BotonQuitarMusica" type="TextureButton" parent="PanelConfiguracion"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+offset_left = 49.0
+offset_top = 24.0
+offset_right = 163.45
+offset_bottom = 152.0
+scale = Vector2(0.7, 0.7)
+
+[connection signal="pressed" from="BotonConfiguracion" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="BotonInicio" to="." method="_on_boton_inicio_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="PanelConfiguracion/CerrarButton" to="." method="_on_cerrar_button_pressed"]
 [connection signal="pressed" from="PanelConfiguracion/BotonQuitarMusica" to="." method="_on_boton_quitar_musica_pressed"]
-[connection signal="pressed" from="BotonConfiguracion" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
-[connection signal="pressed" from="BotonInicio" to="." method="_on_boton_inicio_pressed"]

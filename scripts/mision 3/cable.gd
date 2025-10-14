@@ -21,6 +21,7 @@ func _ready():
 		target_name = ""
 
 func _input(event):
+	
 	if connected_flag:
 		return
 

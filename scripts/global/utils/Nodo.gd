@@ -7,11 +7,11 @@ var i
 var fe = 0
 var icon
 
-func actualizar(scene, i: int, iconpath):
-	self.scene = scene
+func actualizar(ascene, id: int, iconpath):
+	self.scene = ascene
 	izq = null
 	der = null
-	self.i = i
+	self.i = id
 	self.icon = iconpath
 	self.fe = 1
-	print("Nodo creado: ", i)
+	print("Nodo creado: ", self.i)

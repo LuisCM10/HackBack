@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://c5iq4wuln0n7j"]
+[gd_scene load_steps=18 format=4 uid="uid://c5iq4wuln0n7j"]
 
 [ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="1_0si71"]
+[ext_resource type="Script" uid="uid://da6frk2atvkda" path="res://scripts/escena_mision_1.gd" id="1_fun4v"]
 [ext_resource type="Texture2D" uid="uid://dardhnk7wv7iv" path="res://assets/Tileset/tileset x1.png" id="2_jbgmm"]
 [ext_resource type="PackedScene" uid="uid://k1mkbl27noyn" path="res://scenes/Objetos/ComputadorMision1.tscn" id="3_j73ts"]
 [ext_resource type="PackedScene" uid="uid://b5ivp2tr6sfad" path="res://Player/player.tscn" id="4_rm04x"]
@@ -1636,6 +1637,7 @@ sources/0 = SubResource("TileSetAtlasSource_d1ilt")
 sources/1 = SubResource("TileSetAtlasSource_hptm8")
 
 [node name="EscenaMision1Computador" type="Node2D"]
+script = ExtResource("1_fun4v")
 
 [node name="Piso" type="TileMapLayer" parent="."]
 texture_filter = 1

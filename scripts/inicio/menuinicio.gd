@@ -14,8 +14,8 @@ extends Control
 @onready var label_instrucciones = $PanelConfiguracion/LabelInstrucciones
 
 # Íconos de música
-@onready var icono_sonido = preload("res://assets/img/inicio/sonido.png")
-@onready var icono_mute = preload("res://assets/img/inicio/sonido.png")
+@onready var icono_sonido = preload("res://BotonVol.png")
+@onready var icono_mute = preload("res://BotónNoVol.png")
 
 var arbol : Arbol
 var raiz
@@ -28,21 +28,18 @@ func _ready():
 	Resources.iniciarJuego()	
 	arbol = Resources.arbol
 	raiz = arbol.raiz
-	panel.visible = false
-	var mapa = preload("res://scenes/global/map.tscn").instantiate()
-	GlobalState.iniciarMapa(mapa)
-
-	_actualizar_icono_musica()
+	mostrar_Config(false)
+	
 
 # ===========================
 # Funciones de botones
 # ===========================
 
 func _on_settings_pressed():
-	mostrar_Config(false)
+	mostrar_Config(true)
 
 func _on_cerrar_button_pressed():
-	mostrar_Config(true)
+	mostrar_Config(false)
 
 func _on_boton_quitar_musica_pressed():
 	if musica.playing:
@@ -71,11 +68,12 @@ func _actualizar_icono_musica():
 		boton_quitar_musica.texture_normal = icono_mute
 
 func mostrar_Config(value: bool):
-	fondo.visible = value
-	boton_inicio.visible = value
-	boton_salir.visible = value
-	boton_config.visible = value
-	panel.visible = not value
+	_actualizar_icono_musica()
+	fondo.visible = not value
+	boton_inicio.visible = not value
+	boton_salir.visible = not value
+	boton_config.visible = not value
+	panel.visible = value
 	
 func mostrar() -> void :
 	self.visible = true

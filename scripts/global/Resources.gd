@@ -3,8 +3,8 @@ extends Node
 
 var questions: Array[Question]
 var users: Array[User]
-const misionScenes = ["res://scenes/EscenaMision1Computador.tscn" ,
- 				"res://scenes/cuarto_misión_2.tscn",
+const misionScenes = ["res://scenes/escena_mision_1.tscn",
+ 				"res://scenes/escena_mision_2.tscn",
  				"res://scenes/escena_mision_3.tscn",
  				"res://scenes/escena_mision_4.tscn",
  				"res://scenes/escena_mision_5.tscn"]
@@ -14,7 +14,6 @@ const iconPath = ["res://assets/img/mapPreview/Prewiev1.jpg",
 				"res://assets/img/mapPreview/Preview4.png",
 				"res://assets/img/mapPreview/Preview5.png"]
 const sceneWin = "res://scenes/escena_final.tscn"
-const sceneQuit = ""
 const puerta := "res://scenes/escena_puertas.tscn"
 const hoja := "res://scenes/escena_hoja.tscn"
 var ultQuestion = 1

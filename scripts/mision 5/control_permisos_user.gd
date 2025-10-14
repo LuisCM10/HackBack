@@ -5,7 +5,7 @@ extends Control
 var users_usados: Array[User] = []
 var scene = preload("res://scenes/mision 5/UserPermiso.tscn")
 var scene_inst : Array
-
+var escene = Resources.puerta
 var puertas_inst
 var loading = false
 
@@ -15,6 +15,8 @@ func _ready() -> void:
 		$Panel/ScrollContainer/VBoxContainer.add_child(scene_inst[x])
 	$error.visible = false
 	usuarios()
+	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
+		escene = Resources.hoja
 	cambiar_escena_asincrona()
 	
 func _process(delta: float) -> void:
@@ -75,19 +77,19 @@ func statusWin() -> bool:
 func cambiar_escena_asincrona():
 	if not loading:
 		loading = true
-		ResourceLoader.load_threaded_request(Resources.puerta)
-		print("Iniciando carga asíncrona de: ", Resources.puerta)
+		ResourceLoader.load_threaded_request(escene)
+		print("Iniciando carga asíncrona de: ", escene)
 		
 func _loading():
-	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
+	var status = ResourceLoader.load_threaded_get_status(escene)
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
+			var porcentaje = ResourceLoader.load_threaded_get_status(escene, progress)
 			print("Progreso: ", porcentaje * 100, "%")
 
 		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
+			var recurso = ResourceLoader.load_threaded_get(escene)
 			if recurso is PackedScene:
 				puertas_inst = recurso
 			else:
@@ -95,7 +97,7 @@ func _loading():
 			loading = false
 
 		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", Resources.puerta)
+			print("Error al cargar la escena: ", escene)
 			loading = false
 			
 func siguientenivel():
@@ -106,4 +108,4 @@ func siguientenivel():
 	
 func salioDelJuego():
 	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_file(scene_Inicio)
+	get_tree().change_scene_to_packed(scene_Inicio)

@@ -47,6 +47,7 @@ radius = 28.160255
 script = ExtResource("1_uydm1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q4mvo")
 animation = &"idle"
 

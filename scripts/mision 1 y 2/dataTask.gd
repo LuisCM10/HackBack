@@ -18,6 +18,7 @@ var corriendo := false
 
 var puertas_inst
 var loading = false
+var scene = Resources.puerta
 
 func _ready():
 	personaje.animation = "quieto"
@@ -27,6 +28,8 @@ func _ready():
 	progress_bar.visible = false
 	status.visible = false
 	btn_upload.visible = false
+	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
+		scene = Resources.hoja
 	cambiar_escena_asincrona()
 
 func _on_btn_correcta_pressed():
@@ -100,19 +103,19 @@ func _on_btn_upload_pressed():
 func cambiar_escena_asincrona():
 	if not loading:
 		loading = true
-		ResourceLoader.load_threaded_request(Resources.puerta)
-		print("Iniciando carga asíncrona de: ", Resources.puerta)
+		ResourceLoader.load_threaded_request(scene)
+		print("Iniciando carga asíncrona de: ", scene)
 		
 func _loading():
-	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
+	var status = ResourceLoader.load_threaded_get_status(scene)
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
+			var porcentaje = ResourceLoader.load_threaded_get_status(scene, progress)
 			print("Progreso: ", porcentaje * 100, "%")
 
 		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
+			var recurso = ResourceLoader.load_threaded_get(scene)
 			if recurso is PackedScene:
 				puertas_inst = recurso
 			else:
@@ -120,7 +123,7 @@ func _loading():
 			loading = false
 
 		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", Resources.puerta)
+			print("Error al cargar la escena: ", scene)
 			loading = false
 			
 func siguientenivel():
@@ -131,4 +134,4 @@ func siguientenivel():
 	
 func salioDelJuego():
 	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_file(scene_Inicio)
+	get_tree().change_scene_to_packed(scene_Inicio)

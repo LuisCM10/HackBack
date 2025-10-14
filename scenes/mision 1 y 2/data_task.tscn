@@ -354,6 +354,8 @@ animations = [{
 [node name="dataTask" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(1.8289216, 1.3883973)
+size_flags_horizontal = 6
 script = ExtResource("1_fk2l8")
 
 [node name="Node2D" type="Node2D" parent="."]

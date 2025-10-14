@@ -36,6 +36,7 @@ size = Vector2(52, 26.5)
 script = ExtResource("1_d7ium")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_467w0")
 frame_progress = 0.21317959
 

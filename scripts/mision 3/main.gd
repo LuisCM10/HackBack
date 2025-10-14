@@ -5,12 +5,14 @@ var connected_count: int = 0
 
 var puertas_inst
 var loading = false
-
+var scene = Resources.puerta
 func _ready():
 	var left = $LeftPanel
 	for cable in left.get_children():
 		if cable is Node:
 			cable.connect("connected", Callable(self, "_on_cable_connected"))
+	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
+		scene = Resources.hoja
 	cambiar_escena_asincrona()
 
 func _process(delta: float) -> void:
@@ -32,19 +34,19 @@ func _on_cable_connected(color_name: String)->void:
 func cambiar_escena_asincrona():
 	if not loading:
 		loading = true
-		ResourceLoader.load_threaded_request(Resources.puerta)
-		print("Iniciando carga asíncrona de: ", Resources.puerta)
+		ResourceLoader.load_threaded_request(scene)
+		print("Iniciando carga asíncrona de: ", scene)
 		
 func _loading():
-	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
+	var status = ResourceLoader.load_threaded_get_status(scene)
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
+			var porcentaje = ResourceLoader.load_threaded_get_status(scene, progress)
 			print("Progreso: ", porcentaje * 100, "%")
 
 		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
+			var recurso = ResourceLoader.load_threaded_get(scene)
 			if recurso is PackedScene:
 				puertas_inst = recurso
 			else:
@@ -52,7 +54,7 @@ func _loading():
 			loading = false
 
 		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", Resources.puerta)
+			print("Error al cargar la escena: ", scene)
 			loading = false
 			
 func siguientenivel():
@@ -63,4 +65,4 @@ func siguientenivel():
 	
 func salioDelJuego():
 	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_file(scene_Inicio)
+	get_tree().change_scene_to_packed(scene_Inicio)

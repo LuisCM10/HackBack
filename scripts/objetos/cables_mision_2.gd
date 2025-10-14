@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var interactable: Area2D = $Interactable
 
-@onready var animacionCompu: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animacionCompu: Sprite2D = $Sprite2D
 var scene_ini
 func _ready() -> void:
 	interactable.interact = _on_interact

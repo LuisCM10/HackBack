@@ -15,7 +15,7 @@ func _on_interact():
 	if anim.frame == 0: # Solo si no se ha abierto
 		print("El jugador escogió la puerta derecha")
 		anim.play("abrir")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		if GlobalState.get_nodoActual().izq:
 			GlobalState.set_nodoActual(GlobalState.get_nodoActual().der)
 			get_tree().change_scene_to_file(GlobalState.Loader)

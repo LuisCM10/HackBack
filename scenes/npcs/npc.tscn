@@ -47,6 +47,7 @@ radius = 24.04163
 script = ExtResource("1_g6unj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_a6nw3")
 animation = &"idle"
 frame_progress = 0.16097711

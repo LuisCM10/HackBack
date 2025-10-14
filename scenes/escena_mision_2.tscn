@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bee7uqgg8ng26"]
 
 [ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="1_51pic"]
-[ext_resource type="Script" uid="uid://dg4ow2c1aekrd" path="res://scripts/cuarto_misión_2.gd" id="1_lluwj"]
+[ext_resource type="Script" uid="uid://dg4ow2c1aekrd" path="res://scripts/escena_mision_2.gd" id="1_lluwj"]
 [ext_resource type="Texture2D" uid="uid://dardhnk7wv7iv" path="res://assets/Tileset/tileset x1.png" id="2_lluwj"]
 [ext_resource type="PackedScene" uid="uid://b5ivp2tr6sfad" path="res://Player/player.tscn" id="5_lkyl3"]
 [ext_resource type="PackedScene" uid="uid://o332l55i8jgk" path="res://scenes/Objetos/cables_mision_2.tscn" id="5_vrfd2"]
@@ -1248,6 +1248,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAKAAIAAAAAAAMAAAAAAAoAAAAAAAQAAAAAAAs
 tile_set = SubResource("TileSet_oksca")
 
 [node name="CablesMision2" parent="." instance=ExtResource("5_vrfd2")]
+texture_filter = 1
 position = Vector2(237, 211)
 
 [node name="player" parent="." instance=ExtResource("5_lkyl3")]

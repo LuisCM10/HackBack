@@ -186,10 +186,12 @@ theme = SubResource("Theme_cd3p4")
 text = "Salir"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(881, 422.00003)
 scale = Vector2(8.13672, 9.421876)
 sprite_frames = SubResource("SpriteFrames_1x2i3")
 animation = &"dead"
+frame_progress = 0.16527608
 
 [node name="lose" type="Label" parent="."]
 visible = false

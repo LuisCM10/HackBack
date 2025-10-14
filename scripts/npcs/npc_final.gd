@@ -12,13 +12,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_player_close and Input.is_action_just_pressed("interact"):
-		DialogueManager.show_dialogue_balloon(DialogoNpcHoja)
-		await get_tree().create_timer(1.0).timeout
+		var balloon = DialogueManager.show_dialogue_balloon(DialogoNpcHoja)
+		await balloon.finished
 		get_tree().change_scene_to_file("res://scenes/inicio/menuinicio.tscn")
 
 func _on_area_entered(area: Area2D) -> void:
-		exclamation_mark.visible = true
-		is_player_close = true
+	exclamation_mark.visible = true
+	is_player_close = true
 
 func _on_area_exited(area: Area2D) -> void:
 	exclamation_mark.visible = false

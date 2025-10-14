@@ -18,6 +18,7 @@ extends Control
 
 # Nodos para la pregunta
 @onready var question_label: Label = $Question
+@onready var respuesta_label: Label = $respuesta
 @onready var answer_input: LineEdit = $AnswerInput
 @onready var submit_button: TextureButton = $SubmitButton
 
@@ -32,7 +33,7 @@ var juego_terminado: bool = false
 
 var puertas_inst
 var loading = false
-
+var scene = Resources.puerta
 func _ready():
 	rng.randomize()
 	_build_grid()
@@ -46,6 +47,12 @@ func _ready():
 	submit_button.pressed.connect(Callable(self, "_check_answer"))
 	call_deferred("start_round")
 	indicator.visible = false
+	question_label.visible = false
+	answer_input.visible = false
+	submit_button.visible = false
+	respuesta_label.visible = false
+	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
+		scene = Resources.hoja
 	cambiar_escena_asincrona()
 
 func _process(delta: float) -> void:
@@ -155,6 +162,7 @@ func _on_round_success():
 		input_enabled = false
 		juego_terminado = true
 		question_label.visible = true
+		respuesta_label.visible = true
 		answer_input.visible = true
 		submit_button.visible = true
 		answer_input.text = ""
@@ -219,20 +227,20 @@ func _on_submit_button_pressed() -> void:
 
 func cambiar_escena_asincrona():
 	if not loading:
-		loading = true
-		ResourceLoader.load_threaded_request(LoadResources.puerta)
-		print("Iniciando carga asíncrona de: ", LoadResources.puerta)
+		loading = true		
+		ResourceLoader.load_threaded_request(scene)
+		print("Iniciando carga asíncrona de: ", scene)
 		
 func _loading():
-	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
+	var status = ResourceLoader.load_threaded_get_status(scene)
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
+			var porcentaje = ResourceLoader.load_threaded_get_status(scene, progress)
 			print("Progreso: ", porcentaje * 100, "%")
 
 		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
+			var recurso = ResourceLoader.load_threaded_get(scene)
 			if recurso is PackedScene:
 				puertas_inst = recurso
 			else:
@@ -240,7 +248,7 @@ func _loading():
 			loading = false
 
 		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", Resources.puerta)
+			print("Error al cargar la escena: ", scene)
 			loading = false
 			
 func siguientenivel():
@@ -251,4 +259,4 @@ func siguientenivel():
 	
 func salioDelJuego():
 	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_file(scene_Inicio)
+	get_tree().change_scene_to_packed(scene_Inicio)

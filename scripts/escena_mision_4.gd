@@ -6,3 +6,11 @@ func _ready():
 	if player and player.has_node("Camera2D"):   # Verifica que el player y su cámara existan
 		var camera = player.get_node("Camera2D")
 		camera.zoom = Vector2(3.5 , 3.5)  # Aumenta el zoom 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("salir"):
+		salioDelJuego()
+
+func salioDelJuego():
+	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
+	get_tree().change_scene_to_packed(scene_Inicio)

@@ -12,9 +12,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_player_close and Input.is_action_just_pressed("interact"):
-		DialogueManager.show_dialogue_balloon(DialogoNpcHoja)
-		await get_tree().create_timer(1.0).timeout
-		GlobalState.volverAnterior()
+		var balloon = DialogueManager.show_dialogue_balloon(DialogoNpcHoja)
+		await balloon.finished
+		GlobalState.set_nodoActual(Resources.arbol.raiz)	
 		get_tree().change_scene_to_file(GlobalState.Loader)
 		
 func _on_area_entered(area: Area2D) -> void:

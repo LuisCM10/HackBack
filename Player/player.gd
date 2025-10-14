@@ -4,7 +4,7 @@ const speed = 70
 var current_dir = "none"
 
 func _physics_process(delta: float) -> void:
-	player_movement(delta)
+	player_movement(delta)	
 
 func player_movement(delta):
 	var input = Vector2.ZERO

@@ -71,3 +71,7 @@ derecha={
 [internationalization]
 
 locale/translations_pot_files=PackedStringArray("res://Dialogues/DialogoNpcFinal.dialogue", "res://Dialogues/DialogoNpcHoja.dialogue")
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.03302268, 0.014587098, 0.13809612, 1)

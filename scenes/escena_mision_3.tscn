@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://f1d12sf6d73u"]
+[gd_scene load_steps=14 format=4 uid="uid://f1d12sf6d73u"]
 
 [ext_resource type="Texture2D" uid="uid://dardhnk7wv7iv" path="res://assets/Tileset/tileset x1.png" id="1_5a6dd"]
+[ext_resource type="Script" uid="uid://7sk5mpdvbgvg" path="res://scripts/escena_mision_3.gd" id="1_w3ajg"]
 [ext_resource type="Texture2D" uid="uid://dec27c4armkyw" path="res://assets/Tileset/props and items x1.png" id="2_0bfeq"]
 [ext_resource type="PackedScene" uid="uid://b5ivp2tr6sfad" path="res://Player/player.tscn" id="3_aljm8"]
 [ext_resource type="PackedScene" uid="uid://natcamkxa116" path="res://scenes/Objetos/pantalla_verificar_usuarios_mision_3.tscn" id="4_0bfeq"]
@@ -708,6 +709,8 @@ texture_region_size = Vector2i(32, 32)
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
+8:6/0/z_index = -1
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 9:6/0 = 0
 11:6/0 = 0
 12:6/0 = 0
@@ -1060,21 +1063,27 @@ sources/0 = SubResource("TileSetAtlasSource_hac05")
 sources/1 = SubResource("TileSetAtlasSource_1ugma")
 
 [node name="EscenaMision3" type="Node2D"]
+script = ExtResource("1_w3ajg")
 
 [node name="piso" type="TileMapLayer" parent="."]
+texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAAAAAAiAAEAAAABAAAAAAAiAAEAAAACAAAAAAAiAAEAAAADAAAAAAAiAAEAAAAEAAAAAAAiAAEAAAAFAAAAAAAiAAEAAAAFAAEAAAAiAAEAAAAGAAEAAAAiAAEAAAAGAAAAAAAiAAEAAAAJAAEAAAAiAAEAAAAJAAIAAAAiAAEAAAAJAAMAAAAiAAEAAAAGAAQAAAAiAAEAAAAFAAQAAAAiAAEAAAAEAAQAAAAiAAEAAAADAAQAAAAiAAEAAAACAAQAAAAiAAEAAAABAAQAAAAiAAEAAAAAAAQAAAAiAAEAAAAAAAEAAAAiAAEAAAAAAAIAAAAhAAEAAAAAAAMAAAAiAAEAAAAIAAEAAAAiAAEAAAAIAAIAAAAgAAIAAAAIAAMAAAAiAAEAAAAHAAMAAAAiAAEAAAAHAAIAAAAiAAEAAAAHAAEAAAAiAAEAAAAGAAIAAAAhAAEAAAAGAAMAAAAiAAEAAAAFAAMAAAAiAAEAAAAEAAMAAAAiAAEAAAAEAAIAAAAiAAEAAAADAAIAAAAiAAEAAAADAAEAAAAiAAEAAAAEAAEAAAAiAAEAAAACAAEAAAAgAAEAAAABAAEAAAAgAAEAAAABAAIAAAAiAAEAAAACAAIAAAAiAAEAAAACAAMAAAAiAAEAAAABAAMAAAAiAAEAAAADAAMAAAAkAAEAAAAFAAIAAAAiAAEAAAAHAAQAAAAiAAEAAAAIAAQAAAAiAAEAAAAJAAQAAAAiAAEAAAA=")
 tile_set = SubResource("TileSet_iv4a3")
 
 [node name="paredes" type="TileMapLayer" parent="."]
+texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAABAAAAAQAAAAwAAAACAAAAAQABAAwAAAADAAAAAAAFAAAAAAAEAAAAAAAFAAAAAAAFAAAAAAAFAAAAAAAGAAAAAAAIAAAAAAAGAAEAAAAIAAEAAAAHAAEAAAAFAAAAAAAIAAEAAAAFAAAAAAAJAAEAAAAJAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAIAAAAAAAMAAAABAAIAAAAAAAQAAAABAAkAAAABAAQAAAAFAAoAAAACAAQAAAAFAAoAAAADAAQAAAAFAAoAAAAEAAQAAAAFAAoAAAAFAAQAAAAFAAoAAAAGAAQAAAAFAAoAAAAHAAQAAAAFAAoAAAAIAAQAAAAFAAoAAAAJAAQAAAAIAAoAAAAJAAMAAAAJAAIAAAAJAAIAAAAJAAIAAAAFAAEAAQAAAAEAAAABAAMAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_s0agt")
 
 [node name="props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAAAAQAFAAwAAAAEAAAAAQAFAAwAAAAFAAAAAQAFAAwAAAAGAAAAAQAGAAwAAAAAAAAAAQADAAwAAAAEAAEAAAAAAAIAAAAFAAEAAAAMAAcAAAAIAAIAAAALAAcAAAABAAAAAAACAA4AAAACAAAAAAADAA4AAAABAAIAAAAAAAgAAAABAAMAAAAAAAkAAAA=")
+texture_filter = 1
+tile_map_data = PackedByteArray("AAADAAAAAQAFAAwAAAAEAAAAAQAFAAwAAAAFAAAAAQAFAAwAAAAGAAAAAQAGAAwAAAAAAAAAAQADAAwAAAAEAAEAAAAAAAIAAAAFAAEAAAAMAAcAAAAIAAIAAAALAAcAAAABAAAAAAACAA4AAAACAAAAAAADAA4AAAABAAIAAAAAAAgAAAABAAMAAAAAAAkAAAAIAAEAAAAIAAYAAAA=")
 tile_set = SubResource("TileSet_mwvws")
 
 [node name="player" parent="." instance=ExtResource("3_aljm8")]
+texture_filter = 1
 position = Vector2(61, 22)
 
 [node name="PantallaVerificarUsuariosMision3" parent="." instance=ExtResource("4_0bfeq")]
+texture_filter = 1
 position = Vector2(272, 49)

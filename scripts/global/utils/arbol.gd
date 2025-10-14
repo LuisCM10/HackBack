@@ -118,10 +118,10 @@ func nodo_mas_lejano() -> Nodo:
 	print("Nuevo lejano en BFS: ",nodo_lejano.i, " prof: ", max_prof)
 	return nodo_lejano
 
-func nivel_nodo(nodo : Nodo, raiz: Nodo) -> int:
-	if nodo == raiz:
+func nivel_nodo(nodo : Nodo, araiz: Nodo = raiz) -> int:
+	if nodo == araiz or nodo == null:
 		return 0
-	return 1 + (nivel_nodo(nodo, raiz.izq) if raiz.i > nodo.i else nivel_nodo(nodo, raiz.der))
+	return 1 + (nivel_nodo(nodo, araiz.izq) if araiz.izq != null and araiz.i > nodo.i else nivel_nodo(nodo, araiz.der))
 	
 func existe_clave(clave_buscar: int) -> bool:
 	var actual = raiz

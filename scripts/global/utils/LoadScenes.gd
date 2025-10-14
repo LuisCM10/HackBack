@@ -15,9 +15,7 @@ func _ready():
 	if label:
 		label.text = "Cargando... 0%"
 	
-	visible = true
-	$nivel.text = str("Nivel ",Resources.arbol.nivel_nodo(nodo, Resources.arbol.raiz))
-	$Preview.texture =  Image.load_from_file(nodo.icon)
+	visible = true	
 	cambiar_escena_asincrona()
 
 # Función para iniciar el cambio de escena (llámala desde un botón o evento)
@@ -25,6 +23,16 @@ func cambiar_escena_asincrona():
 	if not loading:
 		loading = true
 		progress_bar.value = 0.0
+		if nodo != null:
+			$nivel.text = str("Nivel ",Resources.arbol.nivel_nodo(nodo, Resources.arbol.raiz))
+			$Preview.texture = load(nodo.icon)
+		elif Resources.CentralSeguro == nodo:
+			$Preview.visible = false
+			$nivel.text = str("Nodo Central Seguro")
+		else:
+			$Preview.visible = false
+			$nivel.text = str("Nodo Comprometido Hoja")
+		
 		ResourceLoader.load_threaded_request(escena_path)
 		print("Iniciando carga asíncrona de: ", escena_path)
 	
@@ -48,22 +56,14 @@ func _process(delta):
 					
 					print("Progreso: ", int(porcentaje), "%")
 				
-				# Opcional: Anima la barra si quieres suavizado (usa Tween)
-				# var tween = create_tween()
-				# tween.tween_property(progress_bar, "value", porcentaje, 0.1)
-				
 			ResourceLoader.THREAD_LOAD_LOADED:
 				# Carga completa: Obtén la escena y cambia
 				var recurso = ResourceLoader.load_threaded_get(escena_path)
 				if recurso is PackedScene:
-					# Opcional: Fade out o mensaje "¡Listo!"
 					if label:
 						label.text = "¡Carga completa!"
 					
-					# Pequeña pausa para ver el 100% (opcional)
 					await get_tree().create_timer(0.5).timeout
-					
-					GlobalState.set_nodoActual(nodo)
 					# Cambia la escena
 					get_tree().change_scene_to_packed(recurso)
 					

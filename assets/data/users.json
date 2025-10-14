@@ -1,382 +1,382 @@
 [
-    {
-        "icon": "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
-        "name": "Laura Méndez",
-        "rol": "Gerente General",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": true,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": true,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39",
-        "name": "Carlos Ruiz",
-        "rol": "Jefe de Recursos Humanos",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-        "name": "María Gómez",
-        "rol": "Contadora",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1633245976565-3084baca3c31?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
-        "name": "Julián Castro",
-        "rol": "Analista Financiero",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-        "name": "Andrea López",
-        "rol": "Líder de Marketing",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1757649887062-990800903897?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=715",
-        "name": "Pedro Herrera",
-        "rol": "Diseñador Gráfico",
-        "permisos": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
-        "name": "Sofía Delgado",
-        "rol": "Desarrolladora Backend",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1552058544-f2b08422138a",
-        "name": "Fernando Orozco",
-        "rol": "Desarrollador Frontend",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
-        "name": "Camila Torres",
-        "rol": "Soporte Técnico",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": false
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1669688174623-f62c2293ae4a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=765",
-        "name": "Diego Martínez",
-        "rol": "Administrador de Sistemas",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-        "name": "Valentina Ramírez",
-        "rol": "Especialista en Ciberseguridad",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": false
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1733325154702-5d5e5d53b6ad?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Ricardo Peña",
-        "rol": "Director de Ventas",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": true,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1683121691272-b4c066d98114?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Natalia Vargas",
-        "rol": "Ejecutiva Comercial",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Miguel Pardo",
-        "rol": "Analista de Datos",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1661589847941-78b4a24c4c20?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
-        "name": "Sara Jiménez",
-        "rol": "Project Manager",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": true,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1670333638779-307d87340318?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Juan Esteban Ríos",
-        "rol": "Tester QA",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
-        "name": "Lucía Duarte",
-        "rol": "Recepcionista",
-        "permisos": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1708275672423-837db6d3d700?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
-        "name": "Héctor Medina",
-        "rol": "Conductor",
-        "permisos": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1691030256266-25e89a3bfd74?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Isabella Cano",
-        "rol": "Asistente Ejecutiva",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": true,
-            "Exportar datos": true
-        },
-        "permisosReales": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": true,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    },
-    {
-        "icon": "https://plus.unsplash.com/premium_photo-1741902728621-9fc5e8092fb5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-        "name": "Tomás Villalba",
-        "rol": "Practicante de Ingeniería",
-        "permisos": {
-            "Ver reportes": true,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": false
-        },
-        "permisosReales": {
-            "Ver reportes": false,
-            "Editar usuarios": false,
-            "Aprobar pagos": false,
-            "Acceso configuración": false,
-            "Exportar datos": true
-        }
-    }
+	{
+		"icon": "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+		"name": "Laura Méndez",
+		"rol": "Gerente General",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": true,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": true,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39",
+		"name": "Carlos Ruiz",
+		"rol": "Jefe de Recursos Humanos",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+		"name": "María Gómez",
+		"rol": "Contadora",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1633245976565-3084baca3c31?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+		"name": "Julián Castro",
+		"rol": "Analista Financiero",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+		"name": "Andrea López",
+		"rol": "Líder de Marketing",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1757649887062-990800903897?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=715",
+		"name": "Pedro Herrera",
+		"rol": "Diseñador Gráfico",
+		"permisos": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+		"name": "Sofía Delgado",
+		"rol": "Desarrolladora Backend",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1552058544-f2b08422138a",
+		"name": "Fernando Orozco",
+		"rol": "Desarrollador Frontend",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
+		"name": "Camila Torres",
+		"rol": "Soporte Técnico",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": false
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1669688174623-f62c2293ae4a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=765",
+		"name": "Diego Martínez",
+		"rol": "Administrador de Sistemas",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
+		"name": "Valentina Ramírez",
+		"rol": "Especialista en Ciberseguridad",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": false
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1733325154702-5d5e5d53b6ad?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Ricardo Peña",
+		"rol": "Director de Ventas",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": true,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1683121691272-b4c066d98114?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Natalia Vargas",
+		"rol": "Ejecutiva Comercial",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Miguel Pardo",
+		"rol": "Analista de Datos",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1661589847941-78b4a24c4c20?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
+		"name": "Sara Jiménez",
+		"rol": "Project Manager",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": true,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1670333638779-307d87340318?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Juan Esteban Ríos",
+		"rol": "Tester QA",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
+		"name": "Lucía Duarte",
+		"rol": "Recepcionista",
+		"permisos": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1708275672423-837db6d3d700?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
+		"name": "Héctor Medina",
+		"rol": "Conductor",
+		"permisos": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1691030256266-25e89a3bfd74?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Isabella Cano",
+		"rol": "Asistente Ejecutiva",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": true,
+			"Exportar datos": true
+		},
+		"permisosReales": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": true,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	},
+	{
+		"icon": "https://plus.unsplash.com/premium_photo-1741902728621-9fc5e8092fb5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+		"name": "Tomás Villalba",
+		"rol": "Practicante de Ingeniería",
+		"permisos": {
+			"Ver reportes": true,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": false
+		},
+		"permisosReales": {
+			"Ver reportes": false,
+			"Editar usuarios": false,
+			"Aprobar pagos": false,
+			"Acceso configuración": false,
+			"Exportar datos": true
+		}
+	}
 ]
