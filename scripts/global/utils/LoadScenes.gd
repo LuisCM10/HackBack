@@ -2,15 +2,17 @@ extends Control  # O Node, para tu loading screen
 
 # Variables para el loading
 var nodo : Nodo = GlobalState.get_nodoActual()
-var escena_path: String = nodo.scene  # Ruta a la escena a cargar
+var nivel = Resources.arbol.nivel_nodo(nodo)
+var escena_path: String  # Ruta a la escena a cargar
+var icon_path: String
 var loading: bool = false
 var progress_array: Array = []  # Array para recibir progreso de ResourceLoader
 
 @onready var progress_bar: ProgressBar = $ProgressBar  # Referencia al nodo ProgressBar
-@onready var label: Label = $Label  # Opcional: Label para texto
+@onready var label: Label = $Label  #Label para texto
 
 func _ready():
-	# Configura la ProgressBar inicialmente (vacía)
+	# Configura la ProgressBar inicialmente 
 	progress_bar.value = 0.0
 	if label:
 		label.text = "Cargando... 0%"
@@ -18,17 +20,21 @@ func _ready():
 	visible = true	
 	cambiar_escena_asincrona()
 
-# Función para iniciar el cambio de escena (llámala desde un botón o evento)
+# Función para iniciar el cambio de escena
 func cambiar_escena_asincrona():
 	if not loading:
 		loading = true
 		progress_bar.value = 0.0
-		if nodo != null:
-			$nivel.text = str("Nivel ",Resources.arbol.nivel_nodo(nodo, Resources.arbol.raiz))
-			$Preview.texture = load(nodo.icon)
-		elif Resources.CentralSeguro == nodo:
+		if Resources.CentralSeguro == nodo:
 			$Preview.visible = false
 			$nivel.text = str("Nodo Central Seguro")
+			escena_path = Resources.sceneWin
+		elif nodo != null:
+			$nivel.text = str("Nivel ", nivel)
+			icon_path = GlobalState.iconScenes.get(nivel)
+			$Preview.texture = load(icon_path)		
+			escena_path = GlobalState.scenasNivel.get(nivel)
+			
 		else:
 			$Preview.visible = false
 			$nivel.text = str("Nodo Comprometido Hoja")
@@ -37,7 +43,7 @@ func cambiar_escena_asincrona():
 		print("Iniciando carga asíncrona de: ", escena_path)
 	
 	
-# Pollea el estado en cada frame (puedes usar un Timer para menos overhead si prefieres)
+# Pollea el estado en cada frame
 func _process(delta):
 	if loading:
 		var status = ResourceLoader.load_threaded_get_status(escena_path, progress_array)
@@ -63,7 +69,7 @@ func _process(delta):
 					if label:
 						label.text = "¡Carga completa!"
 					
-					await get_tree().create_timer(0.5).timeout
+					await get_tree().create_timer(0.75).timeout
 					# Cambia la escena
 					get_tree().change_scene_to_packed(recurso)
 					
@@ -83,6 +89,3 @@ func _process(delta):
 					label.text = "Error en la carga. Reintenta."
 				loading = false
 				progress_bar.value = 0.0  # Reset en error
-
-# Opcional: Limpia el recurso después de usarlo (libera memoria)
-# En THREAD_LOAD_LOADED, después de change_scene: ResourceLoader.load_threaded_get(escena_path, true)

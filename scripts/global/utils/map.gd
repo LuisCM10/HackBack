@@ -12,18 +12,12 @@ var raiz = Resources.arbol.raiz
 var loading := false
 var puertas_init
 var scape = 0
-func _ready() -> void:
-	
+func _ready() -> void:	
 	if camera:
 		camera.make_current()
 		camera.position = Vector2(get_viewport_rect().size.x / 2, 50)
 		camera.zoom = Vector2(1.0, 1.0)
-	cambiar_escena_asincrona()
 	queue_redraw()  # Fuerza a redibujar la escena
-
-func _process(delta: float) -> void:
-	if loading:
-		_loading()
 		
 func _draw():
 	if raiz:
@@ -43,18 +37,16 @@ func _input(event: InputEvent) -> void:
 func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 	var nivelTx = "Nivel " + str(nivel)
 	# Dibuja el nodo como un círculo con el valor dentro
-	if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.izq == nodo or GlobalState.nodoActual.der == nodo or Resources.CentralSeguro == nodo:
+	if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual == nodo or Resources.CentralSeguro == nodo:
 		draw_circle(posicion, 50, Color(0.9, 0.9, 1.0))  # Círculo claro (azul claro para fondo)
 		draw_circle(posicion, 48, Color(0.2, 0.2, 0.8))  # Borde azul oscuro
 		if Resources.CentralSeguro == nodo:
 			nivelTx = "Nodo Central seguro"
 		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion,  nivelTx,0,-1,16,Color(1, 1, 1))  # Texto blanco para el valor
 	var level_spacing = 80  # Espaciado vertical entre niveles (ajústalo según necesites)
-	var sibling_spacing = 2000 / (nivel * 2 / 2) 
-	
-	if nodo == Resources.arbol.raiz:
-		sibling_spacing = 1000
-		
+	var sibling_spacing	= 500
+	if nodo != Resources.arbol.raiz:
+		sibling_spacing = 500 / (nivel * 2 / 2)
 	if nodo.izq:
 		# Posición del hijo izquierdo: abajo del padre y a la izquierda
 		var pos_hijo_izq = Vector2(posicion.x - sibling_spacing, posicion.y + level_spacing)
@@ -68,32 +60,6 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.der == nodo or Resources.CentralSeguro == nodo:
 			draw_line(posicion, pos_hijo_der, Color(0.2, 0.2, 0.8), 2)  # Línea azul gruesa al hijo derecho
 		dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
-
-func cambiar_escena_asincrona():
-	if not loading:
-		loading = true
-		ResourceLoader.load_threaded_request(Resources.puerta)
-		print("Iniciando carga asíncrona de: ", Resources.puerta)
-		
-func _loading():
-	var status = ResourceLoader.load_threaded_get_status(Resources.puerta)
-	match status:
-		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(Resources.puerta, progress)
-			print("Progreso: ", porcentaje * 100, "%")
-
-		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(Resources.puerta)
-			if recurso is PackedScene:
-				puertas_init = recurso
-			else:
-				print("Error: El recurso no es una PackedScene")
-			loading = false
-
-		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", Resources.puerta)
-			loading = false
 			
 func nivelPuertas():
 	if ResourceLoader.THREAD_LOAD_LOADED:

@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://cnrrta4kt78yp"]
+[gd_scene load_steps=21 format=4 uid="uid://cnrrta4kt78yp"]
 
 [ext_resource type="Script" uid="uid://cx27jbftcf3jq" path="res://scripts/mision 1 y 2/dataTask.gd" id="1_fk2l8"]
-[ext_resource type="Texture2D" uid="uid://dro57mcet1de0" path="res://assets/img/mision 1 y 2/boton op1.png" id="3_paehs"]
-[ext_resource type="Texture2D" uid="uid://b58mf2rmlw65u" path="res://assets/img/mision 1 y 2/boton op2.png" id="3_xwe38"]
+[ext_resource type="Texture2D" uid="uid://cr0d2rvxlxrww" path="res://BotonMision2.png" id="3_bqepb"]
 [ext_resource type="Texture2D" uid="uid://chvrmf877ired" path="res://assets/img/mision 1 y 2/tileset x1.png" id="4_anvkl"]
 [ext_resource type="Texture2D" uid="uid://cgorsboej78f3" path="res://assets/img/mision 1 y 2/FolderAntivirus.png" id="4_h56pp"]
 [ext_resource type="Texture2D" uid="uid://bbwu5cf3ly0xv" path="res://assets/img/mision 1 y 2/folderTablet.png" id="5_4tc7x"]
@@ -374,22 +373,47 @@ offset_top = 2.0
 offset_right = 622.0
 offset_bottom = 462.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="btn_correcta" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = -87.0
-offset_top = 114.0
-offset_right = 743.0
-offset_bottom = 203.0
-scale = Vector2(0.9432117, 1.6165582)
-alignment = 1
+offset_left = 77.64138
+offset_top = 123.324356
+offset_right = 307.83167
+offset_bottom = 175.90295
+texture_normal = ExtResource("3_bqepb")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="btn_correcta" type="TextureButton" parent="Panel/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_xwe38")
+[node name="Op1" type="Label" parent="Panel/btn_correcta"]
+layout_mode = 0
+offset_left = 3.8273935
+offset_top = 4.3215294
+offset_right = 220.89519
+offset_bottom = 44.655804
+theme_override_font_sizes/font_size = 12
+text = "Autenticacion de multiples factores"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="btn_incorrecta" type="TextureButton" parent="Panel/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_paehs")
+[node name="btn_incorrecta" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 305.09784
+offset_top = 123.324356
+offset_right = 535.2881
+offset_bottom = 173.7422
+texture_normal = ExtResource("3_bqepb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Op2" type="Label" parent="Panel/btn_incorrecta"]
+layout_mode = 0
+offset_left = 4.374172
+offset_top = 5.0417776
+offset_right = 220.34842
+offset_bottom = 43.935547
+theme_override_font_sizes/font_size = 12
+text = "Auditoria de registros"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="icon_left" type="TextureRect" parent="Panel"]
 layout_mode = 0
@@ -419,18 +443,20 @@ rounded = true
 
 [node name="status" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 324.0
-offset_right = 488.0
-offset_bottom = 347.0
+offset_left = 34.9933
+offset_top = 334.35904
+offset_right = 591.6054
+offset_bottom = 357.35904
 theme_override_fonts/font = ExtResource("7_xwe38")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_upload" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 322.0
-offset_right = 435.0
-offset_bottom = 408.0
+offset_left = 197.38408
+offset_top = 340.84134
+offset_right = 428.3841
+offset_bottom = 426.84134
 texture_normal = ExtResource("8_re3bp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
@@ -440,21 +466,27 @@ sprite_frames = SubResource("SpriteFrames_k1h4s")
 animation = &"caminar"
 frame_progress = 0.11001901
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_paehs")
-autoplay = true
-parameters/looping = true
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 35.0
-offset_right = 592.0
-offset_bottom = 110.0
+[node name="Pregunta" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.993298
+offset_top = 30.411472
+offset_right = -33.006714
+offset_bottom = -378.5885
 theme_override_fonts/font = ExtResource("7_xwe38")
 text = "¿Cuál de esta medidas de seguridad proporciona una capa de 
    protección adicional después  de que un atacante haya
            obtenido la contraseña de un usuario?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_paehs")
+autoplay = true
+parameters/looping = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -463,6 +495,6 @@ offset_top = 201.0
 offset_right = 455.0
 offset_bottom = 241.0
 
-[connection signal="pressed" from="Panel/HBoxContainer/btn_correcta" to="." method="_on_btn_correcta_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/btn_incorrecta" to="." method="_on_btn_incorrecta_pressed"]
+[connection signal="pressed" from="Panel/btn_correcta" to="." method="_on_btn_correcta_pressed"]
+[connection signal="pressed" from="Panel/btn_incorrecta" to="." method="_on_btn_incorrecta_pressed"]
 [connection signal="pressed" from="Panel/btn_upload" to="." method="_on_btn_upload_pressed"]

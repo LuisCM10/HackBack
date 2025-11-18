@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var cols:int = 3
 @export var rows:int = 3
 @export var start_length:int = 3
@@ -22,6 +21,7 @@ extends Control
 @onready var answer_input: LineEdit = $AnswerInput
 @onready var submit_button: TextureButton = $SubmitButton
 
+# Variables Simon Dice
 var rng = RandomNumberGenerator.new()
 var sequence: PackedInt32Array = []
 var player_pos: int = 0
@@ -31,9 +31,26 @@ var buttons: Array = []
 var score: int = 0
 var juego_terminado: bool = false  
 
+# Variables escenas
 var puertas_inst
 var loading = false
 var scene = Resources.puerta
+
+# Banco de preguntas
+var preguntas = [
+	{"enunciado": "Si estás usando RAID 5, ¿cuántos discos duros (mínimo) se necesitan para implementar la paridad distribuida y la tolerancia a fallos??", "respuesta": 3},
+	{"enunciado": "¿Cuál es el número máximo de octetos (conjuntos de dígitos separados por puntos) que compone una dirección IPv4 estándar?", "respuesta": 4},
+	{"enunciado": "La regla 3-2-1 exige que las copias de respaldo se guarden en un mínimo de ¿cuántos tipos diferentes de medios de almacenamiento?", "respuesta": 2},
+	{"enunciado": "Un firewall de Tercera Generación opera en ¿cuántas de las siete capas del modelo OSI?", "respuesta": 3},
+	{"enunciado": "Según la regla de respaldo 3-2-1, ¿cuántas copias totales de tus datos (incluyendo el original) debes mantener?", "respuesta": 3},
+	{"enunciado": "¿La Autenticación de Múltiples Factores (MFA) requiere que se combinen un mínimo de ¿cuántos factores de seguridad (ej. saber, tener, ser)?", "respuesta": 2},
+	{"enunciado": "Para restaurar datos usando un respaldo diferencial, ¿cuántos archivos de respaldo necesitarás como máximo (sin contar el original) para la restauración completa (el último completo y el último diferencial)?", "respuesta": 2}
+]
+var pregunta_actual = 0
+var rondas_a_jugar = 0
+var rondas_jugadas = 0
+var preguntas_correctas = 0
+
 func _ready():
 	rng.randomize()
 	_build_grid()
@@ -41,76 +58,99 @@ func _ready():
 	reset_game()
 	score = 0
 	_update_score_label()
+
+	# Inicializar barra
 	progress_bar.min_value = 0
-	progress_bar.max_value = 3
+	progress_bar.max_value = 1
 	progress_bar.value = 0
+
 	submit_button.pressed.connect(Callable(self, "_check_answer"))
-	call_deferred("start_round")
 	indicator.visible = false
 	question_label.visible = false
 	answer_input.visible = false
 	submit_button.visible = false
 	respuesta_label.visible = false
-	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
-		scene = Resources.hoja
-	cambiar_escena_asincrona()
-
-func _process(delta: float) -> void:
-	if loading:
-		_loading()
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("salir"):
-		salioDelJuego()
+	mostrar_pregunta()
 
+# ----------------------------------------------------------
+#                        PREGUNTAS
+# ----------------------------------------------------------
 
-func _build_grid():
-	grid.columns = cols
-	buttons.clear()
-	for child in grid.get_children():
-		child.queue_free()
-	for i in range(rows * cols):
-		var b = Button.new()
-		b.text = ""
-		b.name = "Tile_%d" % i
-		b.focus_mode = Control.FOCUS_NONE
-		b.custom_minimum_size = Vector2(70,70)
-		b.modulate = Color(0.8, 0.8, 0.8)
-		b.connect("pressed", Callable(self, "_on_tile_pressed").bind(i))
-		grid.add_child(b)
-		buttons.append(b)
+func mostrar_pregunta():
+	if pregunta_actual >= preguntas.size():
+		siguientenivel()
+		return
 
-# -------------------
-func _compute_indicator_positions():
-	indicator_positions.clear()
-	var w = sequence_display.size.x
-	var h = sequence_display.size.y
-	for r in range(rows):
-		for c in range(cols):
-			var nx = (c + 0.5) / cols
-			var ny = (r + 0.5) / rows
-			var pos = Vector2(nx * w, ny * h)
-			indicator_positions.append(pos - indicator.size * 0.5)
+	var preg = preguntas[pregunta_actual]
+	enunciado.text = preg["enunciado"]
+
+	rondas_a_jugar = preg["respuesta"]
+	rondas_jugadas = 0
+
+	# Reiniciar barra de progreso ANTES DE COMENZAR
+	progress_bar.value = 0
+	progress_bar.max_value = rondas_a_jugar
+
+	score = 0
+	_update_score_label()
+
+	reset_game()
+	call_deferred("_iniciar_ronda_simon")
+
+func _iniciar_ronda_simon():
+	if rondas_jugadas >= rondas_a_jugar:
+		# Ya jugó N rondas → pedir respuesta
+		question_label.visible = true
+		answer_input.visible = true
+		submit_button.visible = true
+		respuesta_label.visible = true
+		answer_input.text = ""
+		answer_input.grab_focus()
+		return
+
+	start_round()
+
+func _check_answer():
+	var preg = preguntas[pregunta_actual]
+	var answer = answer_input.text.strip_edges().to_int()
+
+	if answer == preg["respuesta"]:
+		question_label.text = "¡Correcto bro!"
+		preguntas_correctas += 1
+	else:
+		question_label.text = "Incorrecto bro."
+
+	await get_tree().create_timer(1.0).timeout
+	pregunta_actual += 1
+
+	if preguntas_correctas >= 3:
+		siguientenivel()
+	else:
+		question_label.visible = false
+		answer_input.visible = false
+		submit_button.visible = false
+		respuesta_label.visible = false
+		mostrar_pregunta()
+
+# ----------------------------------------------------------
+#                  SIMON DICE (FUNCIONAL)
+# ----------------------------------------------------------
 
 func reset_game():
 	sequence.clear()
 	player_pos = 0
-	input_enabled = false
+	generate_new_sequence(start_length)
 
-# -------------------
-# Lógica principal
+func generate_new_sequence(length:int):
+	for i in range(length):
+		sequence.append(rng.randi_range(0, buttons.size()-1))
+
 func start_round():
-	if juego_terminado:
-		return
 	input_enabled = false
-	if sequence.is_empty():
-		for i in range(start_length):
-			sequence.append(rng.randi_range(0, rows*cols - 1))
-	else:
-		sequence.append(rng.randi_range(0, rows*cols - 1))
+	player_pos = 0
 	await get_tree().create_timer(pause_before_show).timeout
 	await _play_sequence()
-	player_pos = 0
 	input_enabled = true
 
 func _play_sequence():
@@ -118,145 +158,128 @@ func _play_sequence():
 		await _flash_tile(idx)
 		await get_tree().create_timer(time_between_steps - flash_time).timeout
 
-func _flash_tile(idx:int):
-	var b = buttons[idx]
-	var original_color = b.modulate
-	b.modulate = Color(0.0, 0.0, 0.0, 1.0)
-	if idx < indicator_positions.size():
-		indicator.visible = true
-		indicator.position = indicator_positions[idx]
+func _flash_tile(index):
+	var btn = buttons[index]
+	var orig_color = btn.modulate
+	btn.modulate = Color(1,1,1)
 	await get_tree().create_timer(flash_time).timeout
-	b.modulate = original_color
-	indicator.visible = false
+	btn.modulate = orig_color
 
-func _on_tile_pressed(idx:int):
-	if not input_enabled or juego_terminado:
+func _on_tile_pressed(index:int):
+	if not input_enabled:
 		return
-	var expected = sequence[player_pos]
-	if idx == expected:
+
+	await _play_local_flash(index)
+
+	if index == sequence[player_pos]:
 		player_pos += 1
-		await _play_local_flash(idx)
+
 		if player_pos >= sequence.size():
-			input_enabled = false
-			await _on_round_success()
+			_on_round_success()
 	else:
-		input_enabled = false
-		await _on_round_fail()
+		_on_round_fail()
 
-func _play_local_flash(idx:int):
-	var b = buttons[idx]
-	var original = b.modulate
-	b.modulate = Color(0.6, 1.0, 0.6)
+func _play_local_flash(index):
+	var btn = buttons[index]
+	var orig_color = btn.modulate
+	btn.modulate = Color(1, 0.2, 0.2)
 	await get_tree().create_timer(0.2).timeout
-	b.modulate = original
+	btn.modulate = orig_color
 
-# -------------------
-# Rondas completadas
 func _on_round_success():
-	score += 1
-	_update_score_label()
-	_update_progress_bar()
+	rondas_jugadas += 1
+	progress_bar.value = rondas_jugadas
 
-	# Al llegar a 3 aciertos, termina la secuencia
-	if score >= 3:
-		input_enabled = false
-		juego_terminado = true
-		question_label.visible = true
-		respuesta_label.visible = true
-		answer_input.visible = true
-		submit_button.visible = true
-		answer_input.text = ""
-		answer_input.grab_focus()
-		return
+	# aumentar dificultad
+	sequence.append(rng.randi_range(0, buttons.size() - 1))
 
-	# Parpadeo indicador normal
+	# Animación
 	for i in range(3):
 		indicator.visible = not indicator.visible
 		await get_tree().create_timer(0.2).timeout
 	indicator.visible = false
 	await get_tree().create_timer(0.6).timeout
-	start_round()
+
+	call_deferred("_iniciar_ronda_simon")
 
 func _on_round_fail():
-	score = 0
-	_update_score_label()
-	_update_progress_bar()
+	# error visual
 	for b in buttons:
 		b.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.6).timeout
 	for b in buttons:
 		b.modulate = Color(0.8, 0.8, 0.8)
-	reset_game()
+
+	# Reset solo de rondas
+	rondas_jugadas = 0
+	progress_bar.value = 0
+
+	# Reset patrón
+	sequence.clear()
+	for i in range(start_length):
+		sequence.append(rng.randi_range(0, buttons.size() - 1))
+
+	player_pos = 0
+	input_enabled = false
+
 	await get_tree().create_timer(0.4).timeout
-	start_round()
+	call_deferred("_iniciar_ronda_simon")
 
-# -------------------
-# UI actualizaciones
+# ----------------------------------------------------------
+#                         UI
+# ----------------------------------------------------------
+
 func _update_score_label():
-	score_label.text = "Aciertos 
-					   										%d" % score
+	score_label.text = "Aciertos: " + str(score)
 
-func _update_progress_bar():
-	progress_bar.value = score
-	var tween = create_tween()
-	tween.tween_property(progress_bar, "modulate", Color(1, 1, 1.3), 0.15)
-	tween.tween_property(progress_bar, "modulate", Color(1, 1, 1), 0.15)
-	if score == 3:
-		progress_bar.add_theme_color_override("fill_color", Color(0.0, 1.0, 0.4))
+# ----------------------------------------------------------
+#               GRID DE BOTONES E INDICADOR
+# ----------------------------------------------------------
 
+func _build_grid():
+	grid.columns = cols
+	buttons.clear()
+	var total_tiles = cols * rows
 
-# -------------------
-# Verificación de la respuesta final
-func _check_answer():
-	var answer = answer_input.text.strip_edges()
-	if answer == "3":
-		question_label.text = "¡Es correcto, lo lograste!"
-		await get_tree().create_timer(1.0).timeout
-		siguientenivel()
-	else:
-		question_label.text = "Incorrecto. Intenta de nuevo."
-		return
+	for i in range(total_tiles):
+		var btn = Button.new()
+		btn.text = ""
+		btn.modulate = Color(0.4, 0.6, 1)
+		btn.custom_minimum_size = Vector2(70, 70)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_FILL
+		btn.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_FILL
+		btn.connect("pressed", Callable(self, "_on_tile_pressed").bind(i))
+		grid.add_child(btn)
+		buttons.append(btn)
 
-# -------------------
-func _notification(what):
-	if what == NOTIFICATION_RESIZED:
-		_compute_indicator_positions()
+func _compute_indicator_positions():
+	indicator_positions.clear()
+	var tile_size = Vector2(70, 70)
+	var spacing = 10
 
-func _on_submit_button_pressed() -> void:
-	pass
+	for r in range(rows):
+		for c in range(cols):
+			var pos = Vector2(
+				c * (tile_size.x + spacing),
+				r * (tile_size.y + spacing)
+			)
+			indicator_positions.append(pos)
 
-func cambiar_escena_asincrona():
-	if not loading:
-		loading = true		
-		ResourceLoader.load_threaded_request(scene)
-		print("Iniciando carga asíncrona de: ", scene)
-		
-func _loading():
-	var status = ResourceLoader.load_threaded_get_status(scene)
-	match status:
-		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			var progress = []
-			var porcentaje = ResourceLoader.load_threaded_get_status(scene, progress)
-			print("Progreso: ", porcentaje * 100, "%")
+# ----------------------------------------------------------
+#                    CAMBIO DE ESCENA
+# ----------------------------------------------------------
 
-		ResourceLoader.THREAD_LOAD_LOADED:
-			var recurso = ResourceLoader.load_threaded_get(scene)
-			if recurso is PackedScene:
-				puertas_inst = recurso
-			else:
-				print("Error: El recurso no es una PackedScene")
-			loading = false
-
-		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Error al cargar la escena: ", scene)
-			loading = false
-			
 func siguientenivel():
-	if ResourceLoader.THREAD_LOAD_LOADED:
-		get_tree().change_scene_to_packed(puertas_inst)
-		print("Escena cargada y cambiada exitosamente")
-	pass
-	
+	if loading:
+		return
+	loading = true
+	cambiar_escena_asincrona(scene)
+
+func cambiar_escena_asincrona(new_scene):
+	puertas_inst = Resources.cargando.instantiate()
+	add_child(puertas_inst)
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_packed(new_scene)
+
 func salioDelJuego():
-	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_packed(scene_Inicio)
+	get_tree().quit()

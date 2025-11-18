@@ -9,7 +9,7 @@ func altura_nodo(nodo: Nodo) -> int:
 		return 0
 	return nodo.fe
 
-func altura(point: Nodo) -> int:
+func altura(point: Nodo = raiz) -> int:
 	if point == null:
 		return 0
 	return 1 + max(altura(point.izq), altura(point.der))
@@ -41,23 +41,22 @@ func rotar_izq(y: Nodo) -> Nodo:
 
 	return x
 
-func insertar(scene, iconpath):
+func insertar():
 	var i = random.randi_range(1,50)
 	while (existe_clave(i)):
 		i = random.randi_range(1,50)
-	raiz = insertar_rec(scene, raiz, i, iconpath)
+	raiz = insertar_rec(raiz, i)
 	nCentralSeguro = nodo_mas_lejano()
 	
-func insertar_rec(scene, nodo: Nodo, i : int, iconpath) -> Nodo:
+func insertar_rec(nodo: Nodo, i : int) -> Nodo:
 	if nodo == null:		
-		var nuevo : Nodo = Nodo.new()
-		nuevo.actualizar(scene, i, iconpath)	
+		var nuevo : Nodo = Nodo.new(i)
 		return nuevo
 
 	if i < nodo.i:
-		nodo.izq = insertar_rec(scene, nodo.izq, i, iconpath)
+		nodo.izq = insertar_rec(nodo.izq, i)
 	elif i >= nodo.i:
-		nodo.der = insertar_rec(scene, nodo.der, i, iconpath)
+		nodo.der = insertar_rec(nodo.der, i)
 	else:
 		return nodo
 	

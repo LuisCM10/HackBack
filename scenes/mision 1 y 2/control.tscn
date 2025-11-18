@@ -329,6 +329,9 @@ theme_override_font_sizes/font_size = 15
 text = "Según la regla de respaldo 3-2-1, ¿cuál es el número mínimo
      de copias totales de tus datos que debes mantener 
               (incluyendo la copia original)?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="acierto" type="Label" parent="."]
 layout_mode = 1
@@ -369,8 +372,8 @@ color = Color(0.9999997, 0.9373477, 0.96069235, 1)
 layout_mode = 0
 offset_left = 193.0
 offset_top = 152.0
-offset_right = 408.0
-offset_bottom = 345.0
+offset_right = 426.05988
+offset_bottom = 366.11853
 
 [node name="AnswerInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -406,6 +409,9 @@ theme_override_fonts/font = ExtResource("3_wir5x")
 theme_override_font_sizes/font_size = 16
 text = "Pista: 	Observa numéricamente lo 
 		     que haces en el tablero"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="SubmitButton" type="TextureButton" parent="."]
 layout_mode = 0

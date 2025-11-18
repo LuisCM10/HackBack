@@ -16,7 +16,7 @@ func _on_interact():
 		print("El jugador escogió la puerta derecha")
 		anim.play("abrir")
 		await get_tree().create_timer(2.0).timeout
-		if GlobalState.get_nodoActual().izq:
+		if GlobalState.get_nodoActual().der:
 			GlobalState.set_nodoActual(GlobalState.get_nodoActual().der)
 			get_tree().change_scene_to_file(GlobalState.Loader)
 		else:			

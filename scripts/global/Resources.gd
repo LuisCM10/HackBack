@@ -97,8 +97,15 @@ func iniciarJuego() -> void:
 	arbol = Arbol.new()	
 	loadQuestions()
 	loadUsers()
-	for x in random.randi_range(8, 15):
-		var value = generarEscena()
-		arbol.insertar(misionScenes[value], iconPath[value])	
+	for x in random.randi_range(6, 15):
+		arbol.insertar()	
+	seleccionarMisiones()
 	CentralSeguro = arbol.nCentralSeguro
-	CentralSeguro.scene = sceneWin
+
+func seleccionarMisiones():
+	for x in range(arbol.altura()):
+		var value = generarEscena()
+		while (GlobalState.scenasNivel.has(misionScenes[value])):
+			value = generarEscena()
+		GlobalState.scenasNivel.append(misionScenes[value])
+		GlobalState.iconScenes.append(iconPath[value])
