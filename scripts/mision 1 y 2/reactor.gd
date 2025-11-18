@@ -70,7 +70,8 @@ func _ready():
 	answer_input.visible = false
 	submit_button.visible = false
 	respuesta_label.visible = false
-	
+	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
+		scene = Resources.hoja
 	mostrar_pregunta()
 
 # ----------------------------------------------------------
