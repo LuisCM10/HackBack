@@ -70,8 +70,7 @@ func _ready():
 	answer_input.visible = false
 	submit_button.visible = false
 	respuesta_label.visible = false
-	if GlobalState.get_nodoActual().izq == null and GlobalState.get_nodoActual().der == null:
-		scene = Resources.hoja
+	
 	mostrar_pregunta()
 
 # ----------------------------------------------------------
@@ -119,6 +118,7 @@ func _check_answer():
 	if answer == preg["respuesta"]:
 		question_label.text = "¡Correcto bro!"
 		preguntas_correctas += 1
+		
 	else:
 		question_label.text = "Incorrecto bro."
 
@@ -183,14 +183,15 @@ func _on_tile_pressed(index:int):
 func _play_local_flash(index):
 	var btn = buttons[index]
 	var orig_color = btn.modulate
-	btn.modulate = Color(1, 0.2, 0.2)
+	btn.modulate = Color(0.97, 0.94, 0.965, 1.0)
 	await get_tree().create_timer(0.2).timeout
 	btn.modulate = orig_color
 
 func _on_round_success():
 	rondas_jugadas += 1
 	progress_bar.value = rondas_jugadas
-
+	score = score +1
+	_update_score_label()
 	# aumentar dificultad
 	sequence.append(rng.randi_range(0, buttons.size() - 1))
 
@@ -214,7 +215,8 @@ func _on_round_fail():
 	# Reset solo de rondas
 	rondas_jugadas = 0
 	progress_bar.value = 0
-
+	score = 0
+	_update_score_label()
 	# Reset patrón
 	sequence.clear()
 	for i in range(start_length):

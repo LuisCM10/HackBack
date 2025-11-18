@@ -1,5 +1,5 @@
 f098f8d3115d962055284dee314b4f89
-::res://::1763426725
+::res://::1763434922
 BotonMision2.png::CompressedTexture2D::6017892446896462670::1763359147::1763359171::1::::<><><>0<>0<>7d414a920498a3585444173514518124<>res://.godot/imported/BotonMision2.png-cf3b7676bbd99dbb826281784f94e42c.ctex::
 BotonVol.png::CompressedTexture2D::3637549089599990645::1763358229::1763358229::1::::<><><>0<>0<>f760d604cd17dff33acbde9024736548<>res://.godot/imported/BotonVol.png-eee5e87b5a19fcb7c1b6dce9e4cdc2d5.ctex::
 BotónNoVol.png::CompressedTexture2D::7742805406863545777::1763358229::1763358229::1::::<><><>0<>0<>7b3f2d233cac56090a665f517fa7ca0f<>res://.godot/imported/BotónNoVol.png-71d15a05aa1151fe8b8ba02337f87288.ctex::
@@ -187,8 +187,8 @@ map.tscn::PackedScene::3385399431473025116::1763358243::0::1::::<><><>0<>0<><>::
 ::res://scenes/global/utils/::1760459278
 ::res://scenes/inicio/::1763358243
 menuinicio.tscn::PackedScene::1426523638667292196::1763358243::0::1::::<><><>0<>0<><>::uid://wdy832bli4ow::::res://scripts/inicio/menuinicio.gd<>uid://j1d5rikgln1g::::res://assets/img/inicio/MenuInicio.png<>uid://dixwkp8p8jdna::::res://assets/music/musica 5.mp3<>uid://c76v60i0krlty::::res://assets/img/inicio/configuracion.png<>uid://cxlmbpjrfvg7a::::res://Instrucciones.png
-::res://scenes/mision 1 y 2/::1763368135
-control.tscn::PackedScene::5365242728227379367::1763368135::0::1::::<><><>0<>0<><>::uid://cotf75gs8fbom::::res://scripts/mision 1 y 2/reactor.gd<>uid://chvrmf877ired::::res://assets/img/mision 1 y 2/tileset x1.png<>uid://dks6hcy4irrsf::::res://assets/fonts/VCR_OSD_MONO_1.001.ttf<>uid://daogecj3d3ge2::::res://assets/img/mision 1 y 2/boton confirmar.png<>uid://dqhi05wnv04ls::::res://assets/img/mision 1 y 2/barra.png<>uid://dobj2lnh0gykf::::res://assets/music/musica1.mp3
+::res://scenes/mision 1 y 2/::1763430106
+control.tscn::PackedScene::5365242728227379367::1763430106::0::1::::<><><>0<>0<><>::uid://cotf75gs8fbom::::res://scripts/mision 1 y 2/reactor.gd<>uid://chvrmf877ired::::res://assets/img/mision 1 y 2/tileset x1.png<>uid://dks6hcy4irrsf::::res://assets/fonts/VCR_OSD_MONO_1.001.ttf<>uid://daogecj3d3ge2::::res://assets/img/mision 1 y 2/boton confirmar.png<>uid://dqhi05wnv04ls::::res://assets/img/mision 1 y 2/barra.png<>uid://dobj2lnh0gykf::::res://assets/music/musica1.mp3
 data_task.tscn::PackedScene::5721456920741231603::1763362496::0::1::::<><><>0<>0<><>::uid://cx27jbftcf3jq::::res://scripts/mision 1 y 2/dataTask.gd<>uid://cr0d2rvxlxrww::::res://BotonMision2.png<>uid://chvrmf877ired::::res://assets/img/mision 1 y 2/tileset x1.png<>uid://cgorsboej78f3::::res://assets/img/mision 1 y 2/FolderAntivirus.png<>uid://bbwu5cf3ly0xv::::res://assets/img/mision 1 y 2/folderTablet.png<>uid://dks6hcy4irrsf::::res://assets/fonts/VCR_OSD_MONO_1.001.ttf<>uid://bbvs7waiyshak::::res://assets/img/mision 1 y 2/boton cargar.png<>uid://kujsmnkhslic::::res://assets/img/mision 1 y 2/enemies x1.png<>uid://bk7pa8l2xrxhf::::res://assets/music/musica 2.mp3
 ::res://scenes/mision 2/::1763358243
 main_scene.tscn::PackedScene::2105221372486389866::1763358243::0::1::::<><><>0<>0<><>::uid://cqcfvtou6jpnt::::res://scripts/mision 3/main.gd<>uid://cgowop2gexumt::::res://scripts/mision 3/cable.gd<>uid://dkf2grrmwf12h::::res://assets/img/mision 3/cablesfondo.png<>uid://dks6hcy4irrsf::::res://assets/fonts/VCR_OSD_MONO_1.001.ttf
@@ -236,9 +236,9 @@ nodoElement.gd::GDScript::3430467582763876013::1763358243::0::1::::NodoVisual<>N
 ::res://scripts/inicio/::1763358243
 ini.gd::GDScript::7429988012306830708::1763358243::0::1::::<>Control<><>0<>0<><>::
 menuinicio.gd::GDScript::1551865344748155318::1763358243::0::1::::<>Control<><>0<>0<><>::
-::res://scripts/mision 1 y 2/::1763422528
+::res://scripts/mision 1 y 2/::1763430107
 dataTask.gd::GDScript::6444882047447778970::1763365736::0::1::::<>Control<><>0<>0<><>::
-reactor.gd::GDScript::5795070671846045924::1763422528::0::1::::<>Control<><>0<>0<><>::
+reactor.gd::GDScript::5795070671846045924::1763430107::0::1::::<>Control<><>0<>0<><>::
 ::res://scripts/mision 3/::1763358243
 cable.gd::GDScript::5224237322565620851::1763358243::0::1::::<>ColorRect<><>0<>0<><>::
 main.gd::GDScript::5900333728260095937::1763358243::0::1::::<>Node2D<><>0<>0<><>::
