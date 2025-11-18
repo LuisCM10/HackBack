@@ -117,13 +117,19 @@ func _check_answer():
 
 	if answer == preg["respuesta"]:
 		question_label.text = "¡Correcto bro!"
+		await get_tree().create_timer(1.0).timeout
 		preguntas_correctas += 1
-		
 	else:
 		question_label.text = "Incorrecto bro."
 
+	
+	question_label.text = "Llevas " + str(preguntas_correctas) + "/3 preguntas correctas"
+
 	await get_tree().create_timer(1.0).timeout
 	pregunta_actual += 1
+
+	# Reiniciar progress bar después de contestar
+	progress_bar.value = 0  
 
 	if preguntas_correctas >= 3:
 		siguientenivel()
@@ -133,6 +139,7 @@ func _check_answer():
 		submit_button.visible = false
 		respuesta_label.visible = false
 		mostrar_pregunta()
+
 
 # ----------------------------------------------------------
 #                  SIMON DICE (FUNCIONAL)
