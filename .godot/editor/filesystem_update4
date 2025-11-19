@@ -1,13 +1,1 @@
-res://scripts/inicio/menuinicio.gd
-res://scripts/escena_mision_1.gd
-res://scripts/escena_mision_2.gd
-res://scripts/escena_final.gd
-res://scripts/escena_hoja.gd
-res://scripts/escena_mision_3.gd
-res://scripts/escena_mision_4.gd
-res://scripts/escena_mision_5.gd
-res://scripts/escena_puertas.gd
-res://scripts/mision 4/QuestionPanel.gd
 res://scripts/global/utils/map.gd
-res://scripts/mision 5/control_permisos_user.gd
-res://scenes/inicio/menuinicio.tscn

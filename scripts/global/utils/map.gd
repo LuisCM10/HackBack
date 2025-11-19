@@ -43,7 +43,7 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 		var nivelTx = "Nivel " + str(nivel) # Borde azul oscuro
 		if Resources.CentralSeguro == nodo:
 			nivelTx = "Nodo Central seguro"
-		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion, nivelTx,0,3,16,Color(1, 1, 1))  # Texto blanco para el valor
+		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion, nivelTx,0,-1,16,Color(1, 1, 1))  # Texto blanco para el valor
 	var level_spacing = 80  # Espaciado vertical entre niveles (ajústalo según necesites)
 	var sibling_spacing	= 500
 	if nodo != Resources.arbol.raiz:
@@ -51,19 +51,16 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 	if nodo.izq:
 		# Posición del hijo izquierdo: abajo del padre y a la izquierda
 		var pos_hijo_izq = Vector2(posicion.x - sibling_spacing, posicion.y + level_spacing)
-		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.izq == nodo:
+		if GlobalState.nodoAnterior.has(nodo.izq) or GlobalState.nodoActual.izq == nodo.izq:
 			draw_line(posicion, pos_hijo_izq, Color(0.2, 0.2, 0.8), 2)  # Línea azul gruesa al hijo izquierdo
-			dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
-		if Resources.CentralSeguro == nodo:
-			dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
+		dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
 	if nodo.der:
 		# Posición del hijo derecho: abajo del padre y a la derecha
 		var pos_hijo_der = Vector2(posicion.x + sibling_spacing, posicion.y + level_spacing)
-		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.der == nodo:
+		if GlobalState.nodoAnterior.has(nodo.der) or GlobalState.nodoActual.der == nodo.der:
 			draw_line(posicion, pos_hijo_der, Color(0.2, 0.2, 0.8), 2)  # Línea azul gruesa al hijo derecho
-			dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
-		if Resources.CentralSeguro == nodo:
-			dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
+		dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
+	return
 			
 func nivelPuertas():
 	get_tree().change_scene_to_file(puertas_init)
