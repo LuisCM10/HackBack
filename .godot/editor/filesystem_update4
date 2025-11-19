@@ -1,1 +1,10 @@
 res://scripts/mision 1 y 2/reactor.gd
+res://scripts/global/GlobalState.gd
+res://scripts/global/utils/arbol.gd
+res://scripts/global/utils/Nodo.gd
+res://scripts/global/Resources.gd
+res://scripts/objetos/puerta_izq.gd
+res://scripts/objetos/puerta_der.gd
+res://scripts/global/utils/LoadScenes.gd
+res://scripts/npcs/npc.gd
+res://scripts/global/utils/map.gd
