@@ -10,7 +10,7 @@ var zoom_velocidad: float = 0.1
 
 var raiz = Resources.arbol.raiz
 var loading := false
-var puertas_init
+var puertas_init = Resources.puerta
 var scape = 0
 func _ready() -> void:	
 	if camera:
@@ -22,7 +22,7 @@ func _ready() -> void:
 func _draw():
 	if raiz:
 		# Dibuja el árbol empezando desde la raíz
-		dibujar_nodo(raiz, Vector2(get_viewport_rect().size.x / 2, 50))  # Posición inicial: centro horizontal, arriba vertical
+		dibujar_nodo(raiz, Vector2(get_viewport_rect().size.x/ 2, get_viewport_rect().size.y/ 2))  # Posición inicial: centro horizontal, arriba vertical
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -42,7 +42,7 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 		draw_circle(posicion, 48, Color(0.2, 0.2, 0.8))  # Borde azul oscuro
 		if Resources.CentralSeguro == nodo:
 			nivelTx = "Nodo Central seguro"
-		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion,  nivelTx,0,-1,16,Color(1, 1, 1))  # Texto blanco para el valor
+		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion, nivelTx,0,3,16,Color(1, 1, 1))  # Texto blanco para el valor
 	var level_spacing = 80  # Espaciado vertical entre niveles (ajústalo según necesites)
 	var sibling_spacing	= 500
 	if nodo != Resources.arbol.raiz:
@@ -50,22 +50,23 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 	if nodo.izq:
 		# Posición del hijo izquierdo: abajo del padre y a la izquierda
 		var pos_hijo_izq = Vector2(posicion.x - sibling_spacing, posicion.y + level_spacing)
-		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.izq == nodo or Resources.CentralSeguro == nodo:
+		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.izq == nodo:
 			draw_line(posicion, pos_hijo_izq, Color(0.2, 0.2, 0.8), 2)  # Línea azul gruesa al hijo izquierdo
-		dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
-	
+			dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
+		if Resources.CentralSeguro == nodo:
+			dibujar_nodo(nodo.izq, pos_hijo_izq, nivel + 1)
 	if nodo.der:
 		# Posición del hijo derecho: abajo del padre y a la derecha
 		var pos_hijo_der = Vector2(posicion.x + sibling_spacing, posicion.y + level_spacing)
-		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.der == nodo or Resources.CentralSeguro == nodo:
+		if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual.der == nodo:
 			draw_line(posicion, pos_hijo_der, Color(0.2, 0.2, 0.8), 2)  # Línea azul gruesa al hijo derecho
-		dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
+			dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
+		if Resources.CentralSeguro == nodo:
+			dibujar_nodo(nodo.der, pos_hijo_der, nivel + 1)
 			
 func nivelPuertas():
-	if ResourceLoader.THREAD_LOAD_LOADED:
-		get_tree().change_scene_to_packed(puertas_init)
-		print("Escena cargada y cambiada exitosamente")
-	pass
+	get_tree().change_scene_to_file(puertas_init)
+	print("Escena cargada y cambiada exitosamente")
 	
 func salioDelJuego():
 	get_tree().change_scene_to_file("res://scenes/inicio/menuinicio.tscn")
