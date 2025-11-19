@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 res://scripts/mision 1 y 2/reactor.gd
+=======
+>>>>>>> Stashed changes
 res://scripts/global/GlobalState.gd
 res://scripts/global/utils/arbol.gd
 res://scripts/global/utils/Nodo.gd
