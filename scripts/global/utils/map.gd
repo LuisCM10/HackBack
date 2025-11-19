@@ -35,11 +35,12 @@ func _input(event: InputEvent) -> void:
 		salioDelJuego()
 		
 func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
-	var nivelTx = "Nivel " + str(nivel)
+	
 	# Dibuja el nodo como un círculo con el valor dentro
 	if GlobalState.nodoAnterior.has(nodo) or GlobalState.nodoActual == nodo or Resources.CentralSeguro == nodo:
 		draw_circle(posicion, 50, Color(0.9, 0.9, 1.0))  # Círculo claro (azul claro para fondo)
-		draw_circle(posicion, 48, Color(0.2, 0.2, 0.8))  # Borde azul oscuro
+		draw_circle(posicion, 48, Color(0.2, 0.2, 0.8)) 
+		var nivelTx = "Nivel " + str(nivel) # Borde azul oscuro
 		if Resources.CentralSeguro == nodo:
 			nivelTx = "Nodo Central seguro"
 		draw_string(load("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"), posicion, nivelTx,0,3,16,Color(1, 1, 1))  # Texto blanco para el valor
@@ -66,7 +67,6 @@ func dibujar_nodo(nodo: Nodo, posicion: Vector2, nivel: int = 0):
 			
 func nivelPuertas():
 	get_tree().change_scene_to_file(puertas_init)
-	print("Escena cargada y cambiada exitosamente")
 	
 func salioDelJuego():
 	get_tree().change_scene_to_file("res://scenes/inicio/menuinicio.tscn")

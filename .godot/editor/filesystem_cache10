@@ -1,5 +1,5 @@
 f098f8d3115d962055284dee314b4f89
-::res://::1763522079
+::res://::1763523594
 BotonMision2.png::CompressedTexture2D::6017892446896462670::1763521135::1763522081::1::::<><><>0<>0<>7d414a920498a3585444173514518124<>res://.godot/imported/BotonMision2.png-cf3b7676bbd99dbb826281784f94e42c.ctex::
 BotonVol.png::CompressedTexture2D::3637549089599990645::1760404882::1760404882::1::::<><><>0<>0<>f760d604cd17dff33acbde9024736548<>res://.godot/imported/BotonVol.png-eee5e87b5a19fcb7c1b6dce9e4cdc2d5.ctex::
 BotónNoVol.png::CompressedTexture2D::7742805406863545777::1760404882::1760404882::1::::<><><>0<>0<>7b3f2d233cac56090a665f517fa7ca0f<>res://.godot/imported/BotónNoVol.png-71d15a05aa1151fe8b8ba02337f87288.ctex::
@@ -227,10 +227,10 @@ space2_4-frames.png::CompressedTexture2D::7530727153964554397::1760404882::17604
 ::res://scripts/global/::1763521135
 GlobalState.gd::GDScript::1806404371141395253::1763521135::0::1::::<>Node<><>0<>0<><>::
 Resources.gd::GDScript::240523851003134761::1763521135::0::1::::<>Node<><>0<>0<><>::
-::res://scripts/global/utils/::1763521135
+::res://scripts/global/utils/::1763522882
 arbol.gd::GDScript::2763937366480502865::1763521135::0::1::::Arbol<>RefCounted<><>0<>0<><>::
 LoadScenes.gd::GDScript::5098261443571689333::1763521135::0::1::::<>Control<><>0<>0<><>::
-map.gd::GDScript::4545914502756374605::1763521135::0::1::::<>Node2D<><>0<>0<><>::
+map.gd::GDScript::4545914502756374605::1763522882::0::1::::<>Node2D<><>0<>0<><>::
 Nodo.gd::GDScript::4964183315468113892::1763521135::0::1::::Nodo<>RefCounted<><>0<>0<><>::
 nodoElement.gd::GDScript::3430467582763876013::1760404882::0::1::::NodoVisual<>Node2D<><>0<>0<><>::
 ::res://scripts/inicio/::1760235849

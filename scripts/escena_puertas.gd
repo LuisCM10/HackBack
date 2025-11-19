@@ -1,12 +1,8 @@
 extends Node2D
 
-func _process(delta: float) -> void:
-	GlobalState.player__position = $player.position
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("salir"):
 		salioDelJuego()
 
 func salioDelJuego():
-	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_packed(scene_Inicio)
+	get_tree().change_scene_to_file("res://scenes/inicio/menuinicio.tscn")

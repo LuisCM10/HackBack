@@ -107,5 +107,4 @@ func siguientenivel():
 	pass
 	
 func salioDelJuego():
-	var scene_Inicio = preload("res://scenes/inicio/menuinicio.tscn")
-	get_tree().change_scene_to_packed(scene_Inicio)
+	get_tree().change_scene_to_file("res://scenes/inicio/menuinicio.tscn")

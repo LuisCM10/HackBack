@@ -11,7 +11,6 @@ extends Control
 # Panel de configuración
 @onready var boton_quitar_musica = $PanelConfiguracion/BotonQuitarMusica
 @onready var boton_cerrar = $PanelConfiguracion/CerrarButton
-@onready var label_instrucciones = $PanelConfiguracion/LabelInstrucciones
 
 # Íconos de música
 @onready var icono_sonido = preload("res://BotonVol.png")
